@@ -33,7 +33,7 @@ char **evaluator(token_t *tokens[], void *list_variables[], char *buffer_acumula
 		}
 		else
 		{
-			buffer_acumulator[i] = handler_selector(tokens[i])(tokens[i].literal);
+			buffer_acumulator[i] = tokens[i].literal;
 		}
 	}
 	return (buffer_acumulator);
