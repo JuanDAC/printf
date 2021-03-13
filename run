@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMMANDS="gcc -g -Wall -Werror -Wextra -pedantic *.c"
+COMMANDS="gcc -g -Wall -Werror -Wextra -pedantic *.c";
 ACTIONS=("test" "vagrind" "gdb");
 DIRECTORY_BUILD="build";
 DIRECTORY_TEST="tests";
@@ -24,10 +24,26 @@ gdb()
 	$(echo gdb ./build/main-"$SUFFIX");
 }
 
+
 for ACTION in "${ACTIONS[@]}"; do
-	if [ "${ARGUMENTS[0]}" = "$ACTION" ]; then
-		$(echo sudo "$COMMANDS" ./tests/main-"${ARGUMENTS[1]}".c -o ./build/main-"${ARGUMENTS[1]}");
-		"$ACTION" "${ARGUMENTS[@]:1}";
-	fi
+
+	case "$#" in
+		[3])
+			echo ""
+		;;
+		[2])
+			if [ "${ARGUMENTS[0]}" = "$ACTION" ]; then
+				$(echo sudo "$COMMANDS" ./tests/main-"${ARGUMENTS[1]}".c -o ./build/main-"${ARGUMENTS[1]}");
+				"$ACTION" "${ARGUMENTS[@]:1}";
+			fi
+		;;
+		*)
+			echo "error cantidad de parametros erronea";
+			break;
+		;;
+	esac
+
+
+
 done
 
