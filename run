@@ -1,0 +1,33 @@
+#!/bin/bash
+
+COMMANDS="gcc -g -Wall -Werror -Wextra -pedantic *.c"
+ACTIONS=("test" "vagrind" "gdb");
+DIRECTORY_BUILD="build";
+DIRECTORY_TEST="tests";
+ARGUMENTS=("$@");
+
+test()
+{
+	local SUFFIX="$1";
+	$(echo sudo ./build/main-"$SUFFIX");
+}
+
+vagrind()
+{
+	local SUFFIX="$1";
+	$(echo vagrind ./build/main-"$SUFFIX");
+}
+
+gdb()
+{
+	local SUFFIX="$1";
+	$(echo gdb ./build/main-"$SUFFIX");
+}
+
+for ACTION in "${ACTIONS[@]}"; do
+	if [ "${ARGUMENTS[0]}" = "$ACTION" ]; then
+		$(echo sudo "$COMMANDS" ./tests/main-"${ARGUMENTS[1]}".c -o ./build/main-"${ARGUMENTS[1]}");
+		"$ACTION" "${ARGUMENTS[@]:1}";
+	fi
+done
+
