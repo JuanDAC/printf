@@ -1,7 +1,7 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 /**
-* enum tokenType - tiping handlers
+* enum _token_type - tiping handlers
 * @null: \0
 * @integer: d
 * @ocatal_integer: o
@@ -19,7 +19,7 @@
 *
 * Description: Longer description
 */
-enum tokenType
+typedef enum _token_type
 {
 	null,
 	integer,
@@ -38,28 +38,19 @@ enum tokenType
 
 	long_doble_float,
 	long_integer,
-};
+} token_type;
 
 /**
-* token_type - Typedef for unsigned int
-*/
-typedef enum token_type token_type;
-
-/**
-* struct token - object token
+* struct _token - object token
 * @type: type of handler
 * @literal: character literal
 *
 * Description: Longer description
 */
-struct token
+typedef struct _token
 {
 	token_type type;
 	char *literal;
-};
-/**
-* token_t - Typedef for unsigned int
-*/
-typedef struct token token_t;
+} token_t;
 
 #endif /* TOKEN_H */
