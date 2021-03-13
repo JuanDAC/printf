@@ -2,6 +2,6 @@
 #define EVALUATOR_H
 
 void evaluator(token_t *tokens[], void *list_variables[]);
-char* (*handler_selector(token_t *token))(void *value);
+char* (*handler_selector(token_t *token))(void *);
 
 #endif /* EVALUATOR_H */
