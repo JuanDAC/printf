@@ -32,7 +32,9 @@ char **evaluator(
 	{
 		if (tokens[i].need_variable)
 		{
-			buffer_acumulator[i] = handler_selector(tokens[i])(list_variables[j]);
+			buffer_acumulator[i] = handler_selector(tokens[i])(
+				list_variables[j]
+			);
 			j++;
 		}
 		else
