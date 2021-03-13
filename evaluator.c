@@ -20,7 +20,11 @@ char* (*handler_selector(token_t *token))(void *value)
 }
 
 
-char **evaluator(token_t *tokens[], void *list_variables[], char *buffer_acumulator)
+char **evaluator(
+	token_t *tokens[],
+	void *list_variables[],
+	char *buffer_acumulator
+)
 {
 	int i, j = 0;
 
