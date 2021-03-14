@@ -43,6 +43,13 @@ typedef enum _token_type
 	long_integer,
 } token_type;
 
+typedef enum _handler_function
+{
+	equal_handler,
+	simple_handler,
+	complex_handler,
+} handler_function_t;
+
 /**
 * struct _token - object token
 * @type: type of handler
@@ -54,7 +61,7 @@ typedef struct _token
 {
 	token_type type;
 	char *literal;
-	bool need_variable;
+	handler_function_t type_handler;
 } token_t;
 
 #endif /* TOKEN_H */

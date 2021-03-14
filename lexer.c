@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-int _prntf(const char *format, ...)
+int lexer(garbage_collection ,const char *format)
 {
 	(void)format;
 

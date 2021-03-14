@@ -1,13 +1,13 @@
 #ifndef FORMAT_HANDLERS_H
 #define FORMAT_HANDLERS_H
 
-char *integer_handler(void *number);
-char *character_handler(void *character);
-char *string_handler(void *string);
-char *generic_integer_handler(void *number);
-char *ocatal_integer_handler(void *number);
-char *hexadecimal_integer_handler(void *number);
-char *unsigned_integer_handler(void *number);
-char *short_integer_handler(void *number);
-
+char *integer_handler(const int attribute_length, ...);
+/* char *character_handler(const int attribute_length, ...);
+char *string_handler(const int attribute_length, ...);
+char *generic_integer_handler(const int attribute_length, ...);
+char *ocatal_integer_handler(const int attribute_length, ...);
+char *hexadecimal_integer_handler(const int attribute_length, ...);
+char *unsigned_integer_handler(const int attribute_length, ...);
+char *short_integer_handler(const int attribute_length, ...);
+*/
 #endif /* FORMAT_HANDLERS_H */

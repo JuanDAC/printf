@@ -32,27 +32,46 @@ void print_number(char *buffer, int n)
 	}
 }
 
-char *integer_handler(void *number)
+char *integer_handler(const int attribute_length, ...)
 {
+	va_list attributes;
 	char *buffer;
+	int *number;
+	char *format;
+
+	va_start(attributes, attribute_length);
 
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 		return (NULL);
+	if (attribute_length == 1)
+	{
+		number = va_arg(attributes, int *);
+		print_number(buffer, *(number));
+	}
+	else if (attribute_length == 2)
+	{
+		number = va_arg(attributes, int *);
+		format = va_arg(attributes, char *);
+		/* add handler format */
+		(void)format;
+		print_number(buffer, *(number));
+	}
 
-	print_number(buffer, *((int *)number));
+	va_end(attributes);
 	return (buffer);
 }
-char *character_handler(void *character)
+/*
+char *character_handler(const int attribute_length, ...)
 {
-	return (character);
+	return ((char *)&(""));
 }
-char *string_handler(void *string)
+char *string_handler(const int attribute_length, ...)
 {
-	return (string);
+	return ((char *)&(""));
 }
-char *generic_integer_handler(void *number)
+char *generic_integer_handler(const int attribute_length, ...)
 {
-	return (number);
+	return ((char *)&(""));
 }
-
+*/

@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 
-char *(*handler_selector(token_t *token))(void *value)
+char *(*handler_selector(token_t *token))(const int attribute_length, ...)
 {
 	int i;
 
@@ -17,12 +17,11 @@ char *(*handler_selector(token_t *token))(void *value)
 			return (format_handlers_link[i].handler);
 		}
 	}
-	return (string_handler);
+	return (integer_handler); /* replace with a function equal*/
 }
 
 
-char **evaluator(
-	token_t *tokens[],
+char **evaluator(token_t *tokens[],
 	void *list_variables[],
 	char *buffer_acumulator[]
 )
@@ -31,16 +30,26 @@ char **evaluator(
 
 	for (i = 0; tokens[i]->type != null; i++)
 	{
-		if (tokens[i]->need_variable)
+		switch(tokens[i]->type_handler)
 		{
-			buffer_acumulator[i] = handler_selector(tokens[i])(
-				list_variables[j]
-			);
-			j++;
-		}
-		else
-		{
-			buffer_acumulator[i] = tokens[i]->literal;
+			case equal_handler:
+				buffer_acumulator[i] = tokens[i]->literal;
+				break;
+			case simple_handler:
+				buffer_acumulator[i] = handler_selector(tokens[i])(
+					1,
+					list_variables[j]
+				);
+				j++;
+				break;
+			case complex_handler:
+				buffer_acumulator[i] = handler_selector(tokens[i])(
+					2,
+					list_variables[j],
+					tokens[i]->literal
+				);
+				j++;
+				break;
 		}
 	}
 	return (buffer_acumulator);
