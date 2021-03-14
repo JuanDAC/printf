@@ -36,14 +36,9 @@ typedef enum _token_type
 	hexadecimal_integer,
 	unsigned_integer,
 	short_integer,
-
 	float_point,
 	scientifi_notation,
 	shortest_among,
-
-	character,
-	string,
-
 	long_doble_float,
 	long_integer,
 } token_type;
@@ -59,6 +54,7 @@ typedef struct _token
 {
 	token_type type;
 	char *literal;
+	bool need_variable;
 } token_t;
 
 #endif /* TOKEN_H */
