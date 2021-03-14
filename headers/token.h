@@ -3,6 +3,7 @@
 /**
 * enum _token_type - tiping handlers
 * @null: \0
+* @normal_string: no es un flag
 * @integer: d
 * @character: c
 * @string: s
@@ -23,8 +24,14 @@
 */
 typedef enum _token_type
 {
-	/* mandatory */
+
 	null,
+
+	/* types */
+	format_specification,
+
+	/* mandatory */
+	normal_string,
 	character,
 	string,
 	integer,
@@ -63,5 +70,6 @@ typedef struct _token
 	char *literal;
 	handler_function_t type_handler;
 } token_t;
+
 
 #endif /* TOKEN_H */
