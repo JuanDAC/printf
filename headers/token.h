@@ -4,9 +4,11 @@
 * enum _token_type - tiping handlers
 * @null: \0
 * @integer: d
+* @character: c
+* @string: s
+* @generic_integer: i
 * @ocatal_integer: o
 * @hexadecimal_integer: x
-* @generic_integer: i
 * @unsigned_integer: u
 * @short_integer: h
 * @float_point: f
@@ -21,11 +23,17 @@
 */
 typedef enum _token_type
 {
+	/* mandatory */
 	null,
+	character,
+	string,
 	integer,
+	generic_integer,
+
+	/* advanced */
+
 	ocatal_integer,
 	hexadecimal_integer,
-	generic_integer,
 	unsigned_integer,
 	short_integer,
 
