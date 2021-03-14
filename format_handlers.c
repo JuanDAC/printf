@@ -34,20 +34,24 @@ void print_number(char *buffer, int n)
 
 char *integer_handler(void *number)
 {
-	char (*buffer)[1024];
+	char *buffer;
 
-	print_number(buffer, *number);
+	buffer = malloc(sizeof(char) * 1024);
+	if (buffer == NULL)
+		return (NULL);
+
+	print_number(buffer, *((int *)number));
 	return (buffer);
 }
-char *character(void *character)
+char *character_handler(void *character)
 {
 	return (character);
 }
-char *string(void *string)
+char *string_handler(void *string)
 {
 	return (string);
 }
-char *generic_integer(void *number)
+char *generic_integer_handler(void *number)
 {
 	return (number);
 }
