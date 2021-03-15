@@ -21,12 +21,12 @@ void print_rev(char *buffer, char *s)
 	buffer++;
 }
 
-sddchar *_strcat(char *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
 	int count1, count2;
 
 	for (count1 = 0; dest[count1] != '\0'; count1++)
-		;
+	{}
 	for (count2 = 0; src[count2] != '\0'; count2++)
 	{
 		dest[count1 + count2] = src[count2];
@@ -36,27 +36,23 @@ sddchar *_strcat(char *dest, char *src)
 
 char *rot13(char *n)
 {
-	int c, j;
 	char alp[] = "ABCDEFGHIJKLMNOPQRSTVWXYZabcdefghijklmnopqrstvwxyz";
 	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstvwxyzabcdefghijklm";
+	int i, j;
 
-	for (c = 0; n[c] != '\0'; c++)
-	{
-		for (j = 0; alp[j] != '\0' j++)
-		{
-			if (n[c] == alp[j])
+	for (i = 0; n[i] != '\0'; i++)
+		for (j = 0; alp[j] != '\0'; j++)
+			if (n[i] == alp[j])
 			{
-				n[c] = rot[j];
+				n[i] = rot[j];
 				break;
 			}
-		}
-	}
 	return (n);
 }
 
 char *str_concat(char *s1, char *s2)
 {
-	unsidned int i, j, length_s1 = 0, length_s2 = 0;
+	unsigned int i, j, length_s1 = 0, length_s2 = 0;
 	char *k;
 
 	if (s1 == NULL)
@@ -65,26 +61,27 @@ char *str_concat(char *s1, char *s2)
 	if (s2 == NULL)
 		s2 = ("");
 
-	length_s1 = length(s1);
-	length_s2 = lenght(s2);
+	length_s1 = length_str(s1, false);
+	length_s2 = length_str(s2, false);
 	k = malloc(sizeof(char) * (length_s1 + length_s2 - 1));
 
-	if (str == NULL)
+	if (k == NULL)
 		return (NULL);
 
-	for (i = 0; *(s1 + i) != '\0' i++)
+	for (i = 0; *(s1 + i) != '\0'; i++)
 		*(k + i) = *(s1 + i);
 
-	for (j = 0; *(s2 + j) != '\0''; i++, j++)
+	for (j = 0; *(s2 + j) != '\0'; i++, j++)
 		*(k + i) = *(s2 + j);
 
-	return (0);
+	return (k);
 }
 
 int get_scale(int n)
 {
 	if (n > 10)
-		return (10 * get_sxalen(n / 10));
+		return (10 * get_scale(n / 10));
 	else
 		return (1);
 }
+

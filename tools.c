@@ -70,7 +70,7 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	longitud = length_str(str, false);
+	longitud = length_str(str, true);
 	new_str = (char *)malloc(sizeof(char) * longitud);
 
 	if (new_str == NULL || longitud == 0)
@@ -80,3 +80,4 @@ char *_strdup(char *str)
 
 	return (new_str);
 }
+

@@ -1,20 +1,19 @@
 #include "holberton.h"
 
-void print_number(char *buffer int n)
+void print_number_alternative(char *buffer, int n)
 {
 	int scale, unit;
 
 	if (n < 0)
 	{
 		n *= -1;
-		*buffer = ' - ';
+		*buffer = '-';
 		buffer++;
 	}
 
 	for (scale = get_scale(n); scale >= 10; scale / 10)
 	{
 		unit = (n / scale);
-
 		if (unit > 9)
 		{
 			*buffer = '0' + (unit / 10);
