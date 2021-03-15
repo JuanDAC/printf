@@ -10,12 +10,14 @@ unsigned int length_str(char *string, bool count_null)
 	);
 }
 
+
 int includes(char *s, char c)
 {
 	if (*s == '\0')
 		return (false);
 	return ((*s == c) || includes(s + 1, c));
 }
+
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
@@ -43,6 +45,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	return (string);
 }
+
 char *str_copy(char *from_string, unsigned int length)
 {
 	unsigned int i;
@@ -60,3 +63,21 @@ char *str_copy(char *from_string, unsigned int length)
 
 }
 
+
+char *_strdup(char *str)
+{
+	char *new_str;
+	unsigned int i, longitud;
+
+	if (str == NULL)
+		return (NULL);
+	longitud = length(str);
+	new_str = (char *)malloc(sizeof(cha) * longitud);
+
+	if (new_str == NULL || longitud == o)
+		return (NULL);
+	for (i = 0; i != longitud; i++)
+		*(new_str + i) = *(str + i);
+
+	return (new_str);
+}
