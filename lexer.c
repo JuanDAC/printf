@@ -62,7 +62,7 @@ token_t **lexer(
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		raw_tokens[i] = raw_lexical_analyzer(GC, current_format + i);
-		if (raw_tokens[i]->type == format_specification)
+		if (raw_tokens[i]->type == formated)
 			*(attribute_length) += 1;
 	}
 	raw_tokens[i] = NULL;

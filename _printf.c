@@ -1,22 +1,20 @@
 #include "holberton.h"
 #include <stdio.h>
 
+
 int _printf(const char *format, ...)
 {
 	garbage_collector_t *GC;
-	int attribute_length = 0, i, j;
+	int attribute_length = 0, length_buffer = 0, i, j;
 	token_t **tokens;
-	char *raw_buffer[1024];
-	char buffer[1024];
+	char *raw_buffer[1024], buffer[1024];
 	va_list raw_argument_list;
-	void **list_variables;
-	int length_buffer = 0;
 
+	va_start(raw_argument_list, format);
 	GC = malloc(sizeof(garbage_collector_t));
 
 	(void)format;
 	(void)buffer;
-	(void)list_variables;
 	(void)raw_buffer;
 
 	tokens = lexer(GC, format, &attribute_length);
@@ -39,29 +37,33 @@ int _printf(const char *format, ...)
 	write(1, "parser:\n", 8);
 	for (i = 0; tokens[i]; i++)
 	{
-		if (tokens[i]->type != without_adding)
-		{
-			write(1, tokens[i]->literal, length_str(tokens[i]->literal, false));
-		}
-		else
-		{
-			write(1, "-", 1);
-		}
+		write(1, tokens[i]->literal, length_str(tokens[i]->literal, false));
 	}
 #endif /* DEV */
 
 
-	 /* get  */
-	list_variables = malloc(sizeof(void *) * (attribute_length + 1))
-	va_start(raw_argument_list, format);
+	 /* get attribute length  */
+
+	for (i = 0, attribute_length = 0; tokens[i]; i++)
+		if (tokens[i]->type != normal_string && tokens[i]->type != percentage_escape)
+			attribute_length++;
+/*
 	for (i = 0, j = 0; tokens[i]; i++)
 	{
-		if (tokens[i].normal_string )
+		if (tokens[i]->type != normal_string && tokens[i]->type != percentage_escape)
+		{
+			printf("get len %d\n", attribute_length);
+			printf("get arg %d\n", ((double *)list_variables[j]));
+			j++;
+		}
 	}
+	list_variables[j] = NULL;
+	va_end(raw_argument_list);
+	*/
 
-
-
-	//evaluator(GCt garbage_collector_t *GC, tokens, lst_variablesist_variables, raw_buffer);
+	write(1, "evaluator:\n", 11);
+	evaluator(GC, tokens, raw_argument_list, raw_buffer);
+	write(1, "fin evaluator:\n", 15);
 	for (i = 0, j = 0; tokens[i]; i++)
 	{
 	/*	if (tokens[i]->type != remove_string)

@@ -71,10 +71,10 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	longitud = length(str);
-	new_str = (char *)malloc(sizeof(cha) * longitud);
+	longitud = length_str(str, false);
+	new_str = (char *)malloc(sizeof(char) * longitud);
 
-	if (new_str == NULL || longitud == o)
+	if (new_str == NULL || longitud == 0)
 		return (NULL);
 	for (i = 0; i != longitud; i++)
 		*(new_str + i) = *(str + i);

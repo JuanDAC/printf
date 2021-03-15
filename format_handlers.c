@@ -30,13 +30,14 @@ void print_number(char *buffer, int n)
 				buffer++;
 			}
 	}
+	buffer = '\0';
 }
 
-char *integer_handler(const int attribute_length, ...)
+char *integer_handler(va_list list_variables, const int attribute_length, ...)
 {
 	va_list attributes;
 	char *buffer;
-	int *number;
+	int long long number;
 	char *format;
 
 	va_start(attributes, attribute_length);
@@ -46,16 +47,17 @@ char *integer_handler(const int attribute_length, ...)
 		return (NULL);
 	if (attribute_length == 1)
 	{
-		number = va_arg(attributes, int *);
-		print_number(buffer, *(number));
+		number = (int long long)va_arg(list_variables, int);
+		print_number(buffer, (number));
+		write(1, buffer, 11);
 	}
 	else if (attribute_length == 2)
 	{
-		number = va_arg(attributes, int *);
 		format = va_arg(attributes, char *);
 		/* add handler format */
 		(void)format;
-		print_number(buffer, *(number));
+		number = (int long long)va_arg(list_variables, int);
+		print_number(buffer, (number));
 	}
 
 	va_end(attributes);
