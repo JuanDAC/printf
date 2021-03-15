@@ -8,6 +8,7 @@ typedef struct _handler_link
 } handler_link_t;
 
 char **evaluator(
+	const garbage_collector_t *GC,
 	token_t *tokens[],
 	void *list_variables[],
 	char *buffer_acumulator[]

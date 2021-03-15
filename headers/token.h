@@ -27,6 +27,8 @@ typedef enum _token_type
 
 	null,
 	/* formating */
+	without_adding,
+	formated,
 	format_specification,
 	normal_percentage,
 	normal_string,

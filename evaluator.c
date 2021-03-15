@@ -21,13 +21,16 @@ char *(*handler_selector(token_t *token))(const int attribute_length, ...)
 }
 
 
-char **evaluator(token_t *tokens[],
+char **evaluator(
+	const garbage_collector_t *GC,
+	token_t *tokens[],
 	void *list_variables[],
 	char *buffer_acumulator[]
 )
 {
 	int i, j = 0;
 
+	(void)GC;
 	for (i = 0; tokens[i]->type != null; i++)
 	{
 		switch(tokens[i]->type_handler)

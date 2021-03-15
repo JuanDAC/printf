@@ -3,8 +3,15 @@
 
 int main(void)
 {
-	_printf("mi: hello %%%d  %d world\n", 10, 20);
-	printf("other: hello %%%d %d world\n", 10, 20);
+	int my_len = 0;
+	int other_len = 0;
+	
+
+	my_len =_printf("hello %%%% world%%\n-\n");
+	printf("original:\n");
+	other_len = printf("hello %%%% world%%\n-\n");
+	printf("%d == %d\n", my_len, other_len);
+
 	return (0);
 }
 
