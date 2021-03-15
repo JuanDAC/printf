@@ -41,7 +41,6 @@ char *integer_handler(va_list list_variables, const int attribute_length, ...)
 	char *buffer;
 	char *format;
 	int long long number;
-	int i;
 
 	va_start(attributes, attribute_length);
 
@@ -63,9 +62,8 @@ char *integer_handler(va_list list_variables, const int attribute_length, ...)
 		print_number(local_buffer, (number));
 	}
 
-
 	va_end(attributes);
-	return (buffer);
+	return (_strdup(buffer));
 }
 /*
 char *character_handler(const int attribute_length, ...)

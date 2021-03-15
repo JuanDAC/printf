@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 
 char *(*handler_selector(token_t *token))(va_list list_variables, const int attribute_length, ...)
 {
@@ -29,6 +29,7 @@ char **evaluator(
 )
 {
 	int i, j = 0;
+	write(1, "parser:\n", 8);
 
 	(void)GC;
 	for (i = 0; tokens[i]->type != null; i++)
@@ -55,6 +56,8 @@ char **evaluator(
 				break;
 		}
 	}
+	printf("-<%s>-", buffer_acumulator);
+
 	return (buffer_acumulator);
 }
 
