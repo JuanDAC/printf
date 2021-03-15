@@ -38,6 +38,7 @@ typedef enum _token_type
 	string,
 	integer,
 	generic_integer,
+	percentage_escape,
 	/* advanced */
 	ocatal_integer,
 	hexadecimal_integer,
@@ -70,6 +71,12 @@ typedef struct _token
 	char *literal;
 	handler_function_t type_handler;
 } token_t;
+
+typedef struct _link_token
+{
+	char literal;
+	token_type type;
+} link_token_t;
 
 
 #endif /* TOKEN_H */

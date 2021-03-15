@@ -8,7 +8,8 @@ int _printf(const char *format, ...)
 	token_t **tokens;
 	char *raw_buffer[1024];
 	char buffer[1024];
-	void *list_variables[1024];
+	va_list raw_argument_list;
+	void **list_variables;
 	int length_buffer = 0;
 
 	GC = malloc(sizeof(garbage_collector_t));
@@ -38,9 +39,9 @@ int _printf(const char *format, ...)
 	write(1, "parser:\n", 8);
 	for (i = 0; tokens[i]; i++)
 	{
-		if (tokens[i]->type != formated)
+		if (tokens[i]->type != without_adding)
 		{
-			write(1, tokens[i]->literal, 1);
+			write(1, tokens[i]->literal, length_str(tokens[i]->literal, false));
 		}
 		else
 		{
@@ -48,7 +49,19 @@ int _printf(const char *format, ...)
 		}
 	}
 #endif /* DEV */
-	//evaluator(GCt garbage_collector_t *GC, tokens, list_variables, raw_buffer);
+
+
+	 /* get  */
+	list_variables = malloc(sizeof(void *) * (attribute_length + 1))
+	va_start(raw_argument_list, format);
+	for (i = 0, j = 0; tokens[i]; i++)
+	{
+		if (tokens[i].normal_string )
+	}
+
+
+
+	//evaluator(GCt garbage_collector_t *GC, tokens, lst_variablesist_variables, raw_buffer);
 	for (i = 0, j = 0; tokens[i]; i++)
 	{
 	/*	if (tokens[i]->type != remove_string)
