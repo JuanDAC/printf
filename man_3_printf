@@ -1,0 +1,66 @@
+.TH man 1 "14 Marzo 2021" "0.01" "_printf man page"
+.SH NAME
+.B _printf
+- formatted output conversion
+.SH SYNOPSIS
+
+.SH DESCRIPTION
+The _printf function writes output to
+.I stdout
+produced according to
+.I formats
+as described below.
+
+.B Return value
+.br
+.RS 3
+Upon successful return, these functions return the number of characters
+printed (excluding the null byte used to end output to strings).
+.RE
+
+.B The conversion specifier
+.br
+.RS 3
+A character that specifies the type of conversion to be applied. The
+conversion specifiers and their meanings are:
+.TP
+.B d, i
+When you pass it an integer, it prints its correspondent ascii character
+for every digit. You may pass to it possitive and negative numbers..LP
+.TP
+.B o
+ When you pass to it an integer it converts integers in 10 base to base 8
+  and prints  its correspondent ascii character for every digit.
+  .LP
+  .TP
+  .B c
+   Prints chars.
+   .LP
+   .TP
+   .B s
+   The \fIconst char *\fR argument is expected to be a pointer to an array
+   The \fIconst char *\fR argument is expected to be a pointer to an array
+   of character type (pointer to a string). Characters from the array are
+   written up to (but not including) a terminating null byte ('\0').
+   .LP
+   .TP
+   .B h
+   When you pass to it an integer it converts integers in 10 base to base 16
+   and prints  its correspondent ascii character for every digit.
+   and prints the letters in lowercase.
+
+.LP
+.TP
+.B H
+When you pass to it an integer it converts integers in 10 base to base 16
+and prints  its correspondent ascii character for every digit.
+and prints the letters in uppercase.
+
+.LP
+.RE
+.SH AUTHOR
+Samuel Trujillo
+.SH AUTHOR
+Juan David Avila
+.SH AUTHOR
+Julio Cesar Arenas
