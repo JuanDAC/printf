@@ -1,31 +1,30 @@
 #include "holberton.h"
 
-void print_number_alternative(char *buffer, int n)
+void string_number_alt(char *buffer, int long n)
 {
-	int scale, unit;
+	unsigned long scale, unit, i = 0;
 
 	if (n < 0)
 	{
 		n *= -1;
-		*buffer = '-';
-		buffer++;
+		buffer[i] = '-';
+		i++;
 	}
 
-	for (scale = get_scale(n); scale >= 10; scale / 10)
+	for (scale = get_scale(n); scale >= 10; scale /= 10)
 	{
 		unit = (n / scale);
 		if (unit > 9)
 		{
-			*buffer = '0' + (unit / 10);
-			buffer++;
-			unot = unit % 10;
+			buffer[i] = '0' + (unit / 10);
+			i += 1;
+			unit %= 10;
 		}
-		*buffer = '0' + unit;
-		buffer++;
-		n = n % scale;
+		buffer[i] = '0' + unit;
+		i += 1;
+		n %= scale;
 	}
-	*buffer = '0' + (n / scale);
-	buffer++;
+	buffer[i] = '0' + (n / scale);
 }
 
 int _abs(int n)
