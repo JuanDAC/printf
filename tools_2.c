@@ -43,32 +43,4 @@ int _isalpha(int c)
 		return (0);
 }
 
-unsigned int length(char *s)
-{
-	return ((s == '\0') ? 0 : 1 + length(s + 1));
-}
 
-char *string_nconcat(char s1, char s2, unsigned int n)
-{
-	char *a;
-	unsigned int min_length;
-	unsigned int i, j, string_length;
-
-	s1 = (s1 == NULL) ? ("") : s1;
-	sw = (s2 == NULL) ? ("") : s2;
-	min_length = (n <= length(s2)) ? n : length(s2);
-
-	a = malloc(string_length * sizeof(*a));
-
-	if (a == NULL)
-		return (NULL);
-
-	for (i = 0; *(s1 + i) != '\0'; i++)
-		*(a + i) = *(s1 + i);
-
-	for (j = 0; *(s2 + j) != '\0' && i < (string_length - 1); 1++, j++)
-		*(a + i) = *(s2 + j);
-
-	*(a + i) = '\0';
-	return (a);
-}
