@@ -1,9 +1,9 @@
 #include "holberton.h"
 
-void print_number(char *buffer, int n)
+void print_number(char *buffer, int long long n)
 {
-	int length = 10;
-	int number = n;
+	int long long length = 10;
+	int long long number = n;
 
 	if (n < 0)
 		number = (-n);
@@ -20,6 +20,7 @@ void print_number(char *buffer, int n)
 			n = (-n);
 			*buffer = '-';
 			buffer++;
+			n *= 100;
 		}
 		for (; n > 0; n /= 100)
 			length *= 10;
@@ -36,9 +37,11 @@ void print_number(char *buffer, int n)
 char *integer_handler(va_list list_variables, const int attribute_length, ...)
 {
 	va_list attributes;
+	char local_buffer[1024];
 	char *buffer;
-	int long long number;
 	char *format;
+	int long long number;
+	int i;
 
 	va_start(attributes, attribute_length);
 
@@ -48,8 +51,8 @@ char *integer_handler(va_list list_variables, const int attribute_length, ...)
 	if (attribute_length == 1)
 	{
 		number = (int long long)va_arg(list_variables, int);
-		print_number(buffer, (number));
-		write(1, buffer, 11);
+		print_number(local_buffer, (number));
+		write(1, buffer, 3);
 	}
 	else if (attribute_length == 2)
 	{
@@ -57,8 +60,9 @@ char *integer_handler(va_list list_variables, const int attribute_length, ...)
 		/* add handler format */
 		(void)format;
 		number = (int long long)va_arg(list_variables, int);
-		print_number(buffer, (number));
+		print_number(local_buffer, (number));
 	}
+
 
 	va_end(attributes);
 	return (buffer);

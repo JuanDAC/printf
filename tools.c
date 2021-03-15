@@ -60,7 +60,6 @@ char *str_copy(char *from_string, unsigned int length)
 	new_string[i] = '\0';
 
 	return (new_string);
-
 }
 
 
