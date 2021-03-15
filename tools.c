@@ -21,7 +21,7 @@ int includes(char *s, char c)
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *string;
+	char *n_concat_string;
 	unsigned int min_length;
 	unsigned int i, j, string_length;
 
@@ -29,21 +29,21 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	s2 = (s2 == NULL) ? ("") : s2;
 	min_length = (n <= length_str(s2, false)) ? n : length_str(s2, false);
 	string_length = length_str(s1, false) + min_length + 1;
-	string = malloc(string_length * sizeof(*string));
+	n_concat_string = malloc(string_length * sizeof(*n_concat_string));
 
-	if (string == NULL)
+	if (n_concat_string == NULL)
 		return (NULL);
 
 	for (i = 0; *(s1 + i) != '\0'; i++)
-		*(string + i) = *(s1 + i);
+		*(n_concat_string + i) = *(s1 + i);
 
 	for (j = 0; *(s2 + j) != '\0' && i < (string_length - 1); i++, j++)
-		*(string + i) = *(s2 + j);
+		*(n_concat_string + i) = *(s2 + j);
 
 
 	*(string + i) = '\0';
 
-	return (string);
+	return ();
 }
 
 char *str_copy(char *from_string, unsigned int length)
