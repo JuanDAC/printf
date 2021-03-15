@@ -1,6 +1,10 @@
 #include "holberton.h"
 
-token_t *create_token(const garbage_collector_t *GC, token_type type, char *literal, handler_function_t type_handler)
+token_t *create_token(
+	const garbage_collector_t *GC,
+	token_type type, char *literal,
+	handler_function_t type_handler
+)
 {
 	token_t *new_token;
 
@@ -23,17 +27,28 @@ token_t *raw_lexical_analyzer(const garbage_collector_t *GC, char *character)
 	(void)GC;
 
 	if (*character == '%' && *(character + 1) != '%' && *(character - 1) != '/')
-		current_token = create_token(GC, format_specification, character, equal_handler);
+		current_token = create_token(
+			GC,
+			format_specification,
+			character,
+			equal_handler
+		);
+	else if (*character == '%' && *(character + 1) == '%')
+		current_token = create_token(GC, normal_percentage, character, equal_handler);
 	else
 		current_token = create_token(GC, normal_string, character, equal_handler);
 
 	if (current_token == NULL)
-		return NULL;
+		return (NULL);
 
 	return (current_token);
 }
 
-token_t **lexer(const garbage_collector_t *GC, const char *format)
+token_t **lexer(
+	const garbage_collector_t *GC,
+	const char *format,
+	int *attribute_length
+)
 {
 	int i;
 	char *current_format;
@@ -47,9 +62,19 @@ token_t **lexer(const garbage_collector_t *GC, const char *format)
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		raw_tokens[i] = raw_lexical_analyzer(GC, current_format + i);
+		if (raw_tokens[i]->type == format_specification)
+			*(attribute_length) += 1;
 	}
 	raw_tokens[i] = create_token(GC, null, NULL, equal_handler);
-	
+	for (i = 0; raw_tokens[i]; i++)
+	{
+		if (raw_tokens[i]->type == normal_percentage && raw_tokens[i - 1]->type == normal_percentage)
+		{
+			raw_tokens[i]->type = remove_string;
+			raw_tokens[i]->literal = ("");
+		}
+	}
+
 
 	return (raw_tokens);
 

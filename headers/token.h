@@ -26,19 +26,17 @@ typedef enum _token_type
 {
 
 	null,
-
-	/* types */
+	/* formating */
 	format_specification,
-
-	/* mandatory */
+	normal_percentage,
 	normal_string,
+	remove_string,
+	/* mandatory */
 	character,
 	string,
 	integer,
 	generic_integer,
-
 	/* advanced */
-
 	ocatal_integer,
 	hexadecimal_integer,
 	unsigned_integer,

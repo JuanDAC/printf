@@ -12,6 +12,7 @@
 #include "./headers/garbage_collection.h"
 #include "./headers/token.h"
 /*  */
+#include "./headers/parser.h"
 #include "./headers/lexer.h"
 #include "./headers/evaluator.h"
 #include "./headers/format_handlers.h"

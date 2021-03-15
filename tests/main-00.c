@@ -3,7 +3,8 @@
 
 int main(void)
 {
-	printf("hello world");
+	_printf("mi: hello %%%d  %d world\n", 10, 20);
+	printf("other: hello %%%d %d world\n", 10, 20);
 	return (0);
 }
 
