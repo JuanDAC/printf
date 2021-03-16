@@ -46,11 +46,9 @@ garbage_collector_t *create_garbage_collector(void)
 		return (NULL);
 	}
 
-	GC->subscriptions[0] = GC;
-	GC->subscriptions[1] = GC;
 	GC->malloc = _malloc;
 	GC->free_all = _free_all;
-	GC->malloc_acumulator = 2;
+	GC->malloc_acumulator = 0;
 
 	return (GC);
 }

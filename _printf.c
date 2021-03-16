@@ -24,5 +24,8 @@ int _printf(const char *format, ...)
 	write(1, buffer, length_buffer);
 
 	va_end(raw_argument_list);
+	GC->free_all(GC);
+	free(GC->subscriptions);
+	free(GC);
 	return (length_buffer);
 }
