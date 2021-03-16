@@ -1,11 +1,9 @@
 #ifndef EVALUATOR_H
 #define EVALUATOR_H
 /**
- * Struct _handler_link - heandler
+ * struct _handler_link - heandler
  * @type: variable type
- * @GC: variable GC
- * @list_vsrisbles: list of variables
- * @attribute_length: variable attribute length
+ * @handler: var
  */
 typedef struct _handler_link
 {
@@ -25,7 +23,6 @@ char *evaluator(
 );
 /**
  * handler_selector - function
- * @token: variable
  * @GC: variable
  * @list_variables: list variables
  * @attribute_length: attribute
