@@ -5,7 +5,6 @@ char *_strcat(char *dest, char *src);
 char *rot13(char *n);
 char *str_concat(char *s1, char *s2);
 int get_scale(int n);
-void print_number_alternative(char *buffer, int n);
 int _abs(int n);
 int _isalpha(int c);
 void *_calloc(unsigned int nmemb, unsigned int size);
@@ -20,4 +19,5 @@ int includes(char *s, char c);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
 char *str_copy(char *from_string, unsigned int length);
 char *_strdup(char *str);
+void string_number_alt(char *buffer, int long n);
 #endif /* TOOLS_H */

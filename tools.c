@@ -56,9 +56,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		*(n_concat_string + i) = *(s2 + j);
 
 
-	*(string + i) = '\0';
+	*(n_concat_string + i) = '\0';
 
-	return ();
+	return (n_concat_string);
 }
 
 /**
