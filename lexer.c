@@ -56,7 +56,6 @@ token_t *raw_lexical_analyzer(const garbage_collector_t *GC, char *character)
  * lexer - lexer function
  * @GC: variable
  * @format: format variable
- * @attribute_length: Variable
  * Return: raw_token
  */
 token_t **lexer(
