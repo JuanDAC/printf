@@ -48,8 +48,6 @@ token_t **parser(
 	if (parse_tokens == NULL)
 		return (NULL);
 	(void)GC;
-
-
 	for (raw_index = 0, parser_index = 0; raw_tokens[raw_index]; raw_index++)
 		if (raw_tokens[raw_index]->type == formated)
 		{
@@ -60,17 +58,12 @@ token_t **parser(
 				{
 					parse_tokens[parser_index] = malloc(sizeof(token_t));
 					parse_tokens[parser_index]->literal = str_copy(
-						raw_tokens[raw_index]->literal,
-						shifting
-					);
+						raw_tokens[raw_index]->literal, shifting);
 					parse_tokens[parser_index]->type = without_adding;
 					parse_tokens[parser_index]->type_handler = (shifting = 1)
-						? simple_handler
-						: complex_handler;
-					selector_type(
-						parse_tokens[parser_index],
-						*raw_tokens[raw_index + shifting]->literal
-					);
+						? simple_handler : complex_handler;
+					selector_type(parse_tokens[parser_index],
+						*raw_tokens[raw_index + shifting]->literal);
 					raw_index += shifting;
 					parser_index += 1;
 					continue_format = false;
