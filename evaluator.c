@@ -1,6 +1,8 @@
 #include "holberton.h"
 
-char *(*handler_selector(token_t *token))(va_list list_variables, const int attribute_length, ...)
+char *(*handler_selector(token_t *token))(va_list list_variables,
+	const int attribute_length, ...
+)
 {
 	int i;
 
