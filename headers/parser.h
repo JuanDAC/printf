@@ -6,6 +6,4 @@ token_t **parser(
 	token_t **raw_tokens
 );
 
-
 #endif /* PARSE_H */
-
