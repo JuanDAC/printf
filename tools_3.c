@@ -1,14 +1,16 @@
 #include "holberton.h"
 /**
- * _calloc -
- * @nmemb:
- * @size:
- * Return:
+ * _calloc - function Dynamic Assignment to Memory
+ * @nmemb: variable
+ * @size: Save the size in memory
+ * Return: void
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *buffer;
+
 	int long i;
+
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	buffer = malloc((nmemb * size));
@@ -19,23 +21,24 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	return ((void *)buffer);
 }
 /**
- * _pow -
- * @base:
- * @expo:
- * Return:
+ * _pow - pow function
+ * @base: variable
+ * @expo: variable
+ * Return: void
  */
 int _pow(int base, int expo)
 {
 	return ((expo == 0) ? 1 : (base * _pow(base, expo - 1)));
 }
 /**
- * paser_int -
- * @s:
- * Return:
+ * paser_int - analyzer
+ * @s: variable
+ * Return: void
  */
 int paser_int(char *s)
 {
 	int number_raw, processed_number;
+
 	if (*s == '\0')
 		return (0);
 	number_raw = ((int)*s) - 48;
@@ -47,9 +50,9 @@ int paser_int(char *s)
 	);
 }
 /**
- * is_number -
- * @s:
- * Return:
+ * is_number - Function adding numbers
+ * @s: variable
+ * Return: in  numbers
  */
 int is_number(char *s)
 {
