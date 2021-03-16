@@ -30,3 +30,44 @@ int _strlen_recursion(char *s)
 	}
 	return (0);
 }
+#include "holberton.h"
+/**
+ * return_hexa - hexa
+ * @n: ene
+ * Return: hexa in string
+ */
+char *return_hexa(int n)
+{
+	char *a = NULL, *copy_a = NULL;
+	int i = 0, j = 0, k = 0, base = 16;
+	int f = n;
+
+	while (f > 0)
+	{
+		f /= base;
+		++i;
+	}
+	a = malloc(sizeof(char) * (i + 1));
+	copy_a = malloc(sizeof(char) * (i + 1));
+	if (!copy_a || !a)
+	{
+		free(a);
+		free(copy_a);
+		return (NULL);
+	}
+	i = 0, k = 0, f = n;
+	while (f > 0)
+	{
+		a[i] = f % base + 48;
+		if (f % base > 9)
+			a[i] = f % base + 48 + 39;
+		f /= base;
+		++i;
+	}
+	for (j = i - 1; j >= 0; j--, k++)
+	{
+		copy_a[k] = a[j];
+	}
+	copy_a[k] = '\0';
+	return (copy_a);
+}
