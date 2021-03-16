@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	garbage_collector_t *GC;
-	int attribute_length = 0, length_buffer = 0, i;
+	int attribute_length = 0, length_buffer = 0, i, j, ;
 	token_t **tokens;
 	char **raw_buffer, buffer[RAW_SIZE];
 	va_list raw_argument_list;
@@ -27,9 +27,22 @@ int _printf(const char *format, ...)
 			attribute_length++;
 
 	raw_buffer = evaluator(GC, tokens, raw_argument_list, raw_buffer);
-	for (i = 0; raw_buffer[i] ; i++)
+	for (i = 0, j = 0; raw_buffer[i] ; i++)
+	{
+		if (length_str(raw_buffer[i], false) == 1)
+		{
+			buffer[j] = *raw_buffer[i];
+		}
+		else
+		{
+			for (k = )
+			buffer[j] = 
+		}
+	}
 		write(1, raw_buffer[i], length_str(raw_buffer[i], false));
 
+	
+	
 	/* write(1, buffer, length_buffer); */
 
 	return (length_buffer);

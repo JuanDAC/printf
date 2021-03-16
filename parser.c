@@ -37,6 +37,7 @@ token_t **parser(
 		return (NULL);
 	(void)GC;
 
+
 	for (raw_index = 0, parser_index = 0; raw_tokens[raw_index]; raw_index++)
 		if (raw_tokens[raw_index]->type == formated)
 		{
