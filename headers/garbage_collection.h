@@ -13,7 +13,7 @@ typedef struct _garbage
 {
 	void **subscriptions;
 
-	int long malloc_acumulator;
+	unsigned int malloc_acumulator;
 
 	void *(*malloc)(garbage_collector_t *GC, size_t size);
 	void (*free_all)(garbage_collector_t *GC);
