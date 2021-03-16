@@ -22,5 +22,6 @@ int _printf(const char *format, ...)
 	length_buffer = length_str(buffer, false);
 	write(1, buffer, length_buffer);
 
+	va_end(raw_argument_list);
 	return (length_buffer);
 }
