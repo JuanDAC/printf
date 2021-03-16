@@ -1,4 +1,10 @@
 #include "holberton.h"
+/**
+ * selector_type -
+ * @token:
+ * current_character:
+ * Return:
+ */
 void selector_type(token_t *token, char current_character)
 {
 	int i;
@@ -20,7 +26,13 @@ void selector_type(token_t *token, char current_character)
 		}
 	}
 }
-
+/**
+ * parser -
+ * @garbage_collector_t:
+ * @GC:
+ * @raw_tokens:
+ * Return:
+ **/
 token_t **parser(
 	const garbage_collector_t *GC,
 	token_t **raw_tokens
@@ -87,5 +99,3 @@ token_t **parser(
 	parse_tokens[parser_index] = NULL;
 	return (parse_tokens);
 }
-
-
