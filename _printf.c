@@ -14,8 +14,9 @@ int _printf(const char *format, ...)
 
 	if (NULL_OR_ONLY_PERCENTAGE(format))
 		return (-1);
+
 	va_start(raw_argument_list, format);
-	GC = garbage_collector_t create_garbage_collector();
+	GC = create_garbage_collector();
 
 	buffer = evaluator(GC, parser(GC, lexer(GC, format)), raw_argument_list);
 
