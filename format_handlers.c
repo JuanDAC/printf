@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ * print_number -
+ * @buffer:
+ * @n:
+ * Return:
+ */
 void print_number(char *buffer, int n)
 {
 	int length = 10;
@@ -33,7 +38,12 @@ void print_number(char *buffer, int n)
 	}
 	buffer = '\0';
 }
-
+/**
+ * integer_handler -
+ * @list_variables:
+ * @attribute_length:
+ * Return:
+ */
 char *integer_handler(va_list list_variables, const int attribute_length, ...)
 {
 	va_list attributes;
@@ -65,7 +75,7 @@ char *integer_handler(va_list list_variables, const int attribute_length, ...)
 	va_end(attributes);
 	return (buffer);
 }
-/*
+/**
 char *character_handler(const int attribute_length, ...)
 {
 	return ((char *)&(""));
