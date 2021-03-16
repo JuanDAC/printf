@@ -43,18 +43,32 @@ token_t **parser(
 			continue_format = true;
 			for (shifting = 1; continue_format; shifting++)
 			{
-				if (includes(last_type_specifiers, *raw_tokens[raw_index + shifting]->literal))
+				if (includes(
+					last_type_specifiers,
+					*raw_tokens[raw_index + shifting]->literal
+			))
 				{
 					parse_tokens[parser_index] = malloc(sizeof(token_t));
-					parse_tokens[parser_index]->literal = str_copy(raw_tokens[raw_index]->literal, shifting);
+					parse_tokens[parser_index]->literal = str_copy(
+						raw_tokens[raw_index]->literal,
+						shifting
+					);
 					parse_tokens[parser_index]->type = without_adding;
-					parse_tokens[parser_index]->type_handler = (shifting = 1) ? simple_handler : complex_handler;
-					selector_type(parse_tokens[parser_index], *raw_tokens[raw_index + shifting]->literal);
+					parse_tokens[parser_index]->type_handler = (shifting = 1)
+						? simple_handler
+						: complex_handler;
+					selector_type(
+						parse_tokens[parser_index],
+						*raw_tokens[raw_index + shifting]->literal
+					);
 					raw_index += shifting;
 					parser_index += 1;
 					continue_format = false;
 				}
-				else if (!includes(middle_type_specifiers, *raw_tokens[raw_index + shifting]->literal))
+				else if (!includes(
+					middle_type_specifiers,
+					*raw_tokens[raw_index + shifting]->literal
+				))
 				{
 					break;
 				}
@@ -63,7 +77,9 @@ token_t **parser(
 		else
 		{
 			parse_tokens[parser_index] = raw_tokens[raw_index];
-			parse_tokens[parser_index]->literal = str_copy(raw_tokens[raw_index]->literal, 0);
+			parse_tokens[parser_index]->literal = str_copy(
+				raw_tokens[raw_index]->literal, 0
+			);
 			parse_tokens[parser_index]->type = normal_string;
 			parser_index += 1;
 		}
