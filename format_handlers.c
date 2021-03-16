@@ -1,9 +1,9 @@
 #include "holberton.h"
 /**
- * print_number -
- * @buffer:
- * @n:
- * Return:
+ * print_number - prints an integer
+ * @buffer:receives whole
+ * @n:receives int
+ * Return: 0
  */
 void print_number(char *buffer, int n)
 {
@@ -39,17 +39,18 @@ void print_number(char *buffer, int n)
 	buffer = '\0';
 }
 /**
- * integer_handler -
- * @list_variables:
- * @attribute_length:
- * Return:
+ * integer_handler - function handling integer
+ * @list_variables: receive list
+ * @attribute_length: receive quantity
+ * Return:pointer chart
  */
 char *integer_handler(va_list list_variables, const int attribute_length, ...)
 {
 	va_list attributes;
 	char *format;
-	int long number;
 	char *buffer;
+
+	int long number;
 
 	va_start(attributes, attribute_length);
 
