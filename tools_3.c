@@ -56,7 +56,7 @@ int paser_int(char *s)
  */
 int is_number(char *s)
 {
-	if (s == '\0')
+	if (*s == '\0')
 		return (true);
 	return (((*s >= '0' && *s <= '9') || *s == '-') && is_number(s + 1));
 }
