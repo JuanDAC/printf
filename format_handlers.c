@@ -41,7 +41,7 @@ void print_number(char *buffer, int long n)
  * integer_handler - function handling integer
  * @list_variables: receive list
  * @attribute_length: receive quantity
- * @GC: variable
+ * @GC: garbage collection
  * Return:pointer chart
  */
 char *integer_handler(
@@ -87,7 +87,7 @@ char *integer_handler(
  * character_handler - function handling integer
  * @list_variables: receive list
  * @attribute_length: receive quantity
- * @GC: variable
+ * @GC: garbage collection
  * Return:pointer chart
  */
 char *character_handler(
@@ -118,10 +118,10 @@ char *character_handler(
 	return (buffer);
 }
 /**
- * character_handler - function handling integer
+ * string_handler - function handling integer
  * @list_variables: receive list
  * @attribute_length: receive quantity
- * @GC: variable
+ * @GC: garbage collection
  * Return:pointer chart
  */
 char *string_handler(
@@ -151,14 +151,50 @@ char *string_handler(
 
 	return (buffer);
 }
+/**
+ * percentage_escape - function handling integer
+ * @list_variables: receive list
+ * @attribute_length: receive quantity
+ * @GC: garbage collection
+ * Return:pointer chart
+ */
+char *percentage_escape_handler(
+	const garbage_collector_t *GC,
+	va_list list_variables,
+	const int attribute_length,
+	...
+)
+{
+	char *buffer;
 
-/*
-char *string_handler(const int attribute_length, ...)
-{
-	return ((char *)&(""));
+	(void)GC;
+	(void)list_variables;
+	(void)attribute_length;
+
+	buffer = _calloc(2, sizeof(char));
+	*buffer = '%';
+
+	return (buffer);
 }
-char *generic_integer_handler(const int attribute_length, ...)
-{
-	return ((char *)&(""));
-}
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

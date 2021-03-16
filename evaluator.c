@@ -17,7 +17,7 @@ char *(*handler_selector(token_t *token))(
 		{integer, integer_handler},
 		{character, character_handler},
 		{string, string_handler},
-		{character, character_handler},
+		{percentage_escape, percentage_escape_handler},
 		{character, character_handler},
 		{null, NULL}
 	};
