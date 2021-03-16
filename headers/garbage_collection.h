@@ -9,7 +9,6 @@ typedef struct _garbage
 	int malloc_acumulator;
 	void *(*malloc)(void *garbage_collector_t, size_t size);
 	void *(*free_all)(void *garbage_collector_t);
-	void *(*free)(void *garbage_collector_t, void *ptr_to_free);
 } garbage_collector_t;
 
 
