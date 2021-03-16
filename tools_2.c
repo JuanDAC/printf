@@ -1,9 +1,9 @@
 #include "holberton.h"
 /**
- * string_number_alt -
- * @buffer:
- * @n:
- * Return:
+ * string_number_alt - string number
+ * @buffer: buffer
+ * @n: long
+ * Return: void
  */
 void string_number_alt(char *buffer, int long n)
 {
@@ -32,9 +32,9 @@ void string_number_alt(char *buffer, int long n)
 	buffer[i] = '0' + (n / scale);
 }
 /**
- * _abs -
- * @n:
- * Return:
+ * _abs - function abs
+ * @n: variable
+ * Return: n
  */
 int _abs(int n)
 {
@@ -43,9 +43,9 @@ int _abs(int n)
 	return (n);
 }
 /**
- * _isalpha -
- * @c:
- * Return:
+ * _isalpha - function that prints the alphabet
+ * @c: Variable that stores alphabet
+ * Return: 0
  */
 int _isalpha(int c)
 {
