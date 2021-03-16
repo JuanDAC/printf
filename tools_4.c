@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ * _strspn -
+ * @s:
+ * @accept:
+ * Return:
+ */
 unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int i, acumulator = 0;
@@ -12,7 +17,11 @@ unsigned int _strspn(char *s, char *accept)
 			break;
 	return (acumulator);
 }
-
+/**
+ * _strlen_recursion -
+ * @s:
+ * Return:
+ */
 int _strlen_recursion(char *s)
 {
 	if (*s != '\0')
