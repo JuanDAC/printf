@@ -1,5 +1,12 @@
 #include "holberton.h"
-
+/**
+ * set_normal_token - define un token de tipo normal
+ * @PT: parse tpken
+ * @PI: parse index
+ * @RT: row token
+ * @RI: row index
+ * Return: always void
+ */
 void set_normal_token(token_t **PT, int *PI, token_t **RT, int RI)
 {
 	PT[*PI] = RT[RI];
@@ -40,7 +47,6 @@ void selector_type(token_t *token, char current_character)
 }
 /**
  * parser - function parser
- * @garbage_collector_t: variable garbage collector
  * @GC: variable
  * @raw_tokens: raw tokens
  * Return: parse_tokens
