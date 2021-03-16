@@ -1,4 +1,7 @@
 # Printf
+
+![enter image description here](file:///home/thiago/Downloads/WhatsApp%20Image%202021-03-16%20at%201.23.00%20PM.jpeg)
+
 Printf is the C language function to do formatted printing. The same function is also available in PERL. This paper explains how printf works, and how to design the proper formatting specification for any occasion.
 # Requirements
 General
