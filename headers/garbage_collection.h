@@ -15,8 +15,8 @@ typedef struct _garbage
 
 	unsigned int malloc_acumulator;
 
-	void *(*malloc)(garbage_collector_t *GC, size_t size);
-	void (*free_all)(garbage_collector_t *GC);
+	void *(*malloc)(struct _garbage *GC, size_t size);
+	void (*free_all)(struct _garbage *GC);
 } garbage_collector_t;
 
 garbage_collector_t *create_garbage_collector(void);
