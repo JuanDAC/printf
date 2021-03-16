@@ -8,7 +8,7 @@ void *_malloc(garbage_collector_t *GC, size_t size)
 	if (GC->subscriptions[GC->malloc_acumulator] == NULL)
 		return (NULL);
 	GC->malloc_acumulator++;
-	return GC->subscriptions[GC->malloc_acumulator - 1];
+	return (GC->subscriptions[GC->malloc_acumulator - 1]);
 }
 
 void _free_all(garbage_collector_t *GC)
@@ -20,7 +20,7 @@ void _free_all(garbage_collector_t *GC)
 	}
 }
 
-garbage_collector_t create_garbage_collector()
+garbage_collector_t create_garbage_collector(void)
 {
 	garbage_collector_t *GC;
 
