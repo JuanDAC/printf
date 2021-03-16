@@ -33,13 +33,10 @@ void selector_type(token_t *token, char current_character)
  * @raw_tokens: raw tokens
  * Return: parse_tokens
  **/
-token_t **parser(
-	const garbage_collector_t *GC,
-	token_t **raw_tokens
-)
+token_t **parser(const garbage_collector_t *GC, token_t **raw_tokens)
 {
 	int raw_index, parser_index, shifting;
-	bool continue_format = true;
+	bool continue_f = true;
 	char last_type_specifiers[] = "cdefgiosuxh%";
 	char middle_type_specifiers[] = " -+l.0123456789";
 	token_t **parse_tokens;
@@ -51,8 +48,7 @@ token_t **parser(
 	for (raw_index = 0, parser_index = 0; raw_tokens[raw_index]; raw_index++)
 		if (raw_tokens[raw_index]->type == formated)
 		{
-			continue_format = true;
-			for (shifting = 1; continue_format; shifting++)
+			for (shifting = 1, continue_f = true; continue_f; shifting++)
 				if (includes(last_type_specifiers,
 					*raw_tokens[raw_index + shifting]->literal))
 				{
@@ -64,9 +60,7 @@ token_t **parser(
 						? simple_handler : complex_handler;
 					selector_type(parse_tokens[parser_index],
 						*raw_tokens[raw_index + shifting]->literal);
-					raw_index += shifting;
-					parser_index += 1;
-					continue_format = false;
+					raw_index += shifting, parser_index++, continue_f = false;
 				}
 				else if (!includes(middle_type_specifiers,
 					*raw_tokens[raw_index + shifting]->literal))
