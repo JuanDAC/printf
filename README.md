@@ -43,5 +43,9 @@ This function prints strings with a specified format.
 
 # Contributors
 * Samuel Trujillo
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=samutrujillo&layout=compact&theme=vue&langs_count=6" alt="My github stats"/>
 * Juan david avila
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=JuanDAC&layout=compact&theme=vue&langs_count=6" alt="My github stats"/>
 * Julio Cesar Areas
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=jihuder&layout=compact&theme=vue&langs_count=6" alt="My github stats"/>
+
