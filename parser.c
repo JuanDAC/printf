@@ -83,6 +83,7 @@ token_t **parser(const garbage_collector_t *GC, token_t **raw_tokens)
 		}
 		else
 		{
+			//set_normal_token();
 			SET_NORMAL_TOKEN(parse_tokens, parser_index, raw_tokens, raw_index);
 		}
 	parse_tokens[parser_index] = NULL;
