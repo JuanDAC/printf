@@ -5,8 +5,7 @@
 /* Garbage collector */
 typedef struct _garbage
 {
-	void *subscriptions[1024];
-	void *free_registrations[1024];
+	void **subscriptions;
 	int malloc_acumulator;
 	void *(*malloc)(void *garbage_collector_t, size_t size);
 	void *(*free_all)(void *garbage_collector_t);
