@@ -77,6 +77,7 @@ token_t **parser(const garbage_collector_t *GC, token_t **raw_tokens)
 				else if (!includes(middle_type_specifiers,
 					*raw_tokens[raw_index + shifting]->literal))
 				{
+					set_normal_token(parse_tokens, &parser_index, raw_tokens, raw_index);
 					SET_NORMAL_TOKEN(parse_tokens, parser_index, raw_tokens, raw_index);
 					break;
 				}
@@ -84,7 +85,6 @@ token_t **parser(const garbage_collector_t *GC, token_t **raw_tokens)
 		else
 		{
 			set_normal_token(parse_tokens, &parser_index, raw_tokens, raw_index);
-			//SET_NORMAL_TOKEN(parse_tokens, parser_index, raw_tokens, raw_index);
 		}
 	parse_tokens[parser_index] = NULL;
 	return (parse_tokens);
