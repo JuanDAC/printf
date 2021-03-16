@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ * print_rev - ptint backwards
+ * @buffer: buffer
+ * @s: variable printing variable
+ * Return: void
+ */
 void print_rev(char *buffer, char *s)
 {
 	int i;
@@ -20,7 +25,12 @@ void print_rev(char *buffer, char *s)
 	*buffer = '\n';
 	buffer++;
 }
-
+/**
+ * _strcat - check the code
+ * @dest: this is variable 1
+ * @src: this is variable 2
+ * Return: always 0
+ */
 char *_strcat(char *dest, char *src)
 {
 	int count1, count2;
@@ -33,7 +43,11 @@ char *_strcat(char *dest, char *src)
 	}
 	return (dest);
 }
-
+/**
+ * rot13 - check the code
+ * @n: the variable
+ * Retuern: n
+ */
 char *rot13(char *n)
 {
 	char alp[] = "ABCDEFGHIJKLMNOPQRSTVWXYZabcdefghijklmnopqrstvwxyz";
@@ -49,7 +63,12 @@ char *rot13(char *n)
 			}
 	return (n);
 }
-
+/**
+ * str_concat - 
+ * @s1:
+ * @s2:
+ * Return:
+ */
 char *str_concat(char *s1, char *s2)
 {
 	unsigned int i, j, length_s1 = 0, length_s2 = 0;
@@ -76,7 +95,11 @@ char *str_concat(char *s1, char *s2)
 
 	return (k);
 }
-
+/**
+ * get_scale -
+ * @n:
+ * Return:
+ */
 int get_scale(int n)
 {
 	if (n > 10)
@@ -84,4 +107,3 @@ int get_scale(int n)
 	else
 		return (1);
 }
-
