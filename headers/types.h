@@ -1,7 +1,7 @@
 #ifndef TYPES_H
 #define TYPES_H
 /**
-* enum boolean - Typedef for unsigned int
+* enum _boolean - Typedef for unsigned int
 * @true: value true
 * @false: value false
 */
