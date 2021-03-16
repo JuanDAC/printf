@@ -1,6 +1,13 @@
 #include "holberton.h"
-
-char *(*handler_selector(token_t *token))(va_list list_variables,
+/**
+ * handler_selector - selector the function handler
+ * @GC: garbage collector
+ * @list_variables: current token to sellect handler
+ * @attribute_length: current token to sellect handler
+ * Return: Alwais a function handler
+ */
+char *(*handler_selector(token_t *token))(
+	const garbage_collector_t *GC, va_list list_variables,
 	const int attribute_length, ...
 )
 {
@@ -8,6 +15,10 @@ char *(*handler_selector(token_t *token))(va_list list_variables,
 
 	handler_link_t format_handlers_link[] = {
 		{integer, integer_handler},
+		{character, character_handler},
+		{string, string_handler},
+		{character, character_handler},
+		{character, character_handler},
 		{null, NULL}
 	};
 
@@ -22,14 +33,55 @@ char *(*handler_selector(token_t *token))(va_list list_variables,
 }
 
 
-char **evaluator(
+/**
+ * cure_buffer - selector the function handler
+ * @GC: garbage collector
+ * @raw_buffer: raw buffer extract data
+ * Return: cure_buffer ona dimencion or NULL error
+ */
+char *cure_buffer(const garbage_collector_t *GC, char **raw_buffer)
+{
+	unsigned long i, j, k;
+	char *buffer;
+
+	(void)GC;
+
+	buffer = malloc(sizeof(char) * RAW_SIZE);
+	if (buffer == NULL)
+		return (NULL);
+
+	for (i = 0, j = 0; raw_buffer[i] ; i++)
+	{
+		if (length_str(raw_buffer[i], false) == 1)
+		{
+			buffer[j] = *raw_buffer[i];
+			j++;
+		}
+		else
+		{
+			for (k = 0; k < length_str(raw_buffer[i], false); k++)
+				buffer[j + k] = raw_buffer[i][k];
+			j += k;
+		}
+	}
+	buffer[j] = '\0';
+
+	return (buffer);
+}
+
+
+char *evaluator(
 	const garbage_collector_t *GC,
 	token_t *tokens[],
-	va_list list_variables,
-	char **buffer_acumulator
+	va_list list_variables
 )
 {
 	int i;
+	char **buffer_acumulator;
+
+	buffer_acumulator = malloc(sizeof(char *) * RAW_SIZE);
+	if (buffer_acumulator == NULL)
+		return (NULL);
 
 	(void)GC;
 	for (i = 0; tokens[i]; i++)
@@ -38,12 +90,14 @@ char **evaluator(
 		{
 			case simple_handler:
 				buffer_acumulator[i] = handler_selector(tokens[i])(
+					GC,
 					list_variables,
 					1
 				);
 				break;
 			case complex_handler:
 				buffer_acumulator[i] = handler_selector(tokens[i])(
+					GC,
 					list_variables,
 					2,
 					tokens[i]->literal
@@ -55,6 +109,6 @@ char **evaluator(
 		}
 	}
 	buffer_acumulator[i] = NULL;
-	return (buffer_acumulator);
+	return (cure_buffer(GC, buffer_acumulator));
 }
 

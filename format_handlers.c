@@ -5,10 +5,10 @@
  * @n:receives int
  * Return: 0
  */
-void print_number(char *buffer, int n)
+void print_number(char *buffer, int long n)
 {
-	int length = 10;
-	int number = n;
+	unsigned int length = 10;
+	unsigned int number = n;
 
 	if (n < 0)
 		number = (-n);
@@ -25,7 +25,7 @@ void print_number(char *buffer, int n)
 			n = (-n);
 			*buffer = '-';
 			buffer++;
-			/* n *= 100; */
+			n *= 100;
 		}
 		for (; n > 0; n /= 100)
 			length *= 10;
@@ -36,7 +36,6 @@ void print_number(char *buffer, int n)
 				buffer++;
 			}
 	}
-	buffer = '\0';
 }
 /**
  * integer_handler - function handling integer
@@ -44,43 +43,113 @@ void print_number(char *buffer, int n)
  * @attribute_length: receive quantity
  * Return:pointer chart
  */
-char *integer_handler(va_list list_variables, const int attribute_length, ...)
+char *integer_handler(
+	const garbage_collector_t *GC,
+	va_list list_variables,
+	const int attribute_length,
+	...
+)
 {
 	va_list attributes;
 	char *format;
 	char *buffer;
 
-	int long number;
+	int long current_number;
+
+	(void)GC;
 
 	va_start(attributes, attribute_length);
 
-	/* buffer = _calloc(1024, sizeof(char)); */
-	buffer = malloc(1024 * sizeof(char));
+	buffer = _calloc(RAW_SIZE, sizeof(char));
+	/* buffer = malloc(1024 * sizeof(char)); */
 	if (buffer == NULL)
 		return (NULL);
 
 	if (attribute_length == 1)
 	{
-		number = (int long)va_arg(list_variables, int);
-		print_number(buffer, number);
+		current_number = (int long)va_arg(list_variables, int);
+		print_number(buffer, current_number);
 	}
 	else /* if (attribute_length == 2) */
 	{
 		format = va_arg(attributes, char *);
 		/* add handler format */
 		(void)format;
-		number = (int)va_arg(list_variables, int);
-		print_number(buffer, (number));
+		current_number = (int)va_arg(list_variables, int);
+		print_number(buffer, (current_number));
 	}
 
 	va_end(attributes);
 	return (buffer);
 }
 /**
-char *character_handler(const int attribute_length, ...)
+ * character_handler - function handling integer
+ * @list_variables: receive list
+ * @attribute_length: receive quantity
+ * Return:pointer chart
+ */
+char *character_handler(
+	const garbage_collector_t *GC,
+	va_list list_variables,
+	const int attribute_length,
+	...
+)
 {
-	return ((char *)&(""));
+	va_list attributes;
+	char *format;
+	char *buffer;
+
+	(void)GC;
+
+	buffer = malloc(sizeof(char) * 2);
+
+	va_start(attributes, attribute_length);
+
+	*(buffer) = (char)va_arg(list_variables, int);
+	if (attribute_length > 1)
+	{
+		format = va_arg(attributes, char *);
+		(void)format;
+	}
+	*(buffer + 1) = '\0';
+
+	return (buffer);
 }
+/**
+ * character_handler - function handling integer
+ * @list_variables: receive list
+ * @attribute_length: receive quantity
+ * Return:pointer chart
+ */
+char *string_handler(
+	const garbage_collector_t *GC,
+	va_list list_variables,
+	const int attribute_length,
+	...
+)
+{
+	va_list attributes;
+	char *format;
+	char *buffer;
+
+	(void)GC;
+
+
+	/* buffer = _calloc(RAW_SIZE, sizeof(char)); */
+
+	va_start(attributes, attribute_length);
+
+	buffer = (char *)va_arg(list_variables, char *);
+	if (attribute_length > 1)
+	{
+		format = va_arg(attributes, char *);
+		(void)format;
+	}
+
+	return (buffer);
+}
+
+/*
 char *string_handler(const int attribute_length, ...)
 {
 	return ((char *)&(""));
