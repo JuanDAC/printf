@@ -6,7 +6,6 @@ token_t **parser(
 	token_t **raw_tokens
 );
 
-	PT[PI] = RT[RI];                        \
 	PT[PI]->literal = str_copy(             \
 		RT[RI]->literal, 0);                \
 	PT[PI]->type = normal_string;           \
