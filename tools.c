@@ -1,6 +1,10 @@
 #include "holberton.h"
-
-
+/**
+ * length_str - recore el tamaño de un string
+ * @sring: recibe una direccion
+ * @count_null: recibe una
+ * Return: retorna el string
+ */
 unsigned int length_str(char *string, bool count_null)
 {
 	return (
@@ -10,7 +14,12 @@ unsigned int length_str(char *string, bool count_null)
 	);
 }
 
-
+/**
+ * includes - entra a un pointer
+ * @s: char
+ * @c: char
+ * Return always 0 succes
+ */
 int includes(char *s, char c)
 {
 	if (*s == '\0')
@@ -18,7 +27,13 @@ int includes(char *s, char c)
 	return ((*s == c) || includes(s + 1, c));
 }
 
-
+/**
+ * string_nconcat - entra un pointer
+ * @s1: recibe un caracter
+ * @s2: recibe un caracter
+ * @n: recibe un unsigned
+ * Return: always 0 secces
+ */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *n_concat_string;
@@ -46,6 +61,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	return ();
 }
 
+/**
+ * str_copy - copia un string
+ * @from_string: char
+ * @length: unsigned
+ * Return: new_string
+ */
 char *str_copy(char *from_string, unsigned int length)
 {
 	unsigned int i;
@@ -62,7 +83,11 @@ char *str_copy(char *from_string, unsigned int length)
 	return (new_string);
 }
 
-
+/**
+ * _strdup - copia en memoria dinamica
+ * @str: direccion de caracter
+ * Return: new_str
+ */
 char *_strdup(char *str)
 {
 	char *new_str;
@@ -80,4 +105,3 @@ char *_strdup(char *str)
 
 	return (new_str);
 }
-
