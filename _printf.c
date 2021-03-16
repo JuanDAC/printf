@@ -1,5 +1,9 @@
 #include "holberton.h"
-
+/**
+ * _printf -
+ * @format:
+ * Return:
+ */
 
 int _printf(const char *format, ...)
 {
@@ -30,4 +34,3 @@ int _printf(const char *format, ...)
 
 	return (length_buffer);
 }
-
