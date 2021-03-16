@@ -1,9 +1,9 @@
 #include "holberton.h"
 /**
- * length_str - recore el tamaño de un string
- * @sring: recibe una direccion
- * @count_null: recibe una
- * Return: retorna el string
+ * length_str - Walk the size of a string
+ * @string: Receive an address
+ * @count_null: Receive an address
+ * Return: return to string
  */
 unsigned int length_str(char *string, bool count_null)
 {
@@ -15,10 +15,10 @@ unsigned int length_str(char *string, bool count_null)
 }
 
 /**
- * includes - entra a un pointer
+ * includes - enters a pointer
  * @s: char
  * @c: char
- * Return always 0 succes
+ * Return: always 0 succes
  */
 int includes(char *s, char c)
 {
@@ -28,10 +28,10 @@ int includes(char *s, char c)
 }
 
 /**
- * string_nconcat - entra un pointer
- * @s1: recibe un caracter
- * @s2: recibe un caracter
- * @n: recibe un unsigned
+ * string_nconcat - enters a pointer
+ * @s1: Receive a character
+ * @s2: Receive a character
+ * @n: Receive a unsigned
  * Return: always 0 secces
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -62,7 +62,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 }
 
 /**
- * str_copy - copia un string
+ * str_copy - Copy a string
  * @from_string: char
  * @length: unsigned
  * Return: new_string
@@ -84,8 +84,8 @@ char *str_copy(char *from_string, unsigned int length)
 }
 
 /**
- * _strdup - copia en memoria dinamica
- * @str: direccion de caracter
+ * _strdup - Dynamic memory copy
+ * @str: Character address
  * Return: new_str
  */
 char *_strdup(char *str)
