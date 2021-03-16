@@ -19,7 +19,12 @@
 * @string: s
 * @long_doble_float: lf
 * @long_integer: ld
-*
+* @without_adding: sin añadir token
+* @formated: %
+* @format_specification: %
+* @normal_percentage: %
+* @remove_string: ""
+* @percentage_escape: %
 * Description: Longer description
 */
 typedef enum _token_type
@@ -50,7 +55,12 @@ typedef enum _token_type
 	long_doble_float,
 	long_integer,
 } token_type;
-
+/**
+ * enum _handler_function - manejador de parametros de funciones
+ * @equal_handler: sin funcion
+ * @simple_handler: sin argumento
+ * @complex_handler: con un argumento de formato
+ */
 typedef enum _handler_function
 {
 	equal_handler,
@@ -60,9 +70,9 @@ typedef enum _handler_function
 
 /**
 * struct _token - object token
-* @type: type of handler
 * @literal: character literal
-*
+* @type_handler: manjador de tipo
+* @type: tipo del token
 * Description: Longer description
 */
 typedef struct _token
@@ -71,7 +81,11 @@ typedef struct _token
 	char *literal;
 	handler_function_t type_handler;
 } token_t;
-
+/**
+ * struct _link_token - vincula el tipo con el literal
+ * @literal: string
+ * @type: type string
+ */
 typedef struct _link_token
 {
 	char literal;
