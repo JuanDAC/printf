@@ -7,9 +7,9 @@ int main(void)
 	int other_len = 0;
 
 
-	my_len = _printf("hello %% %d world%%\n-\n", 10);
+	my_len = _printf("hello %d world\n-\n", 10);
 	printf("original:\n");
-	other_len = printf("hello %% %d world%%\n-\n", 10);
+	other_len = printf("hello %d world\n-\n", 10);
 	printf("%d == %d\n", my_len, other_len);
 
 	return (0);
