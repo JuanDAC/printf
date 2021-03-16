@@ -55,11 +55,8 @@ token_t **parser(
 		{
 			continue_format = true;
 			for (shifting = 1; continue_format; shifting++)
-			{
-				if (includes(
-					last_type_specifiers,
-					*raw_tokens[raw_index + shifting]->literal
-			))
+				if (includes(last_type_specifiers,
+					*raw_tokens[raw_index + shifting]->literal))
 				{
 					parse_tokens[parser_index] = malloc(sizeof(token_t));
 					parse_tokens[parser_index]->literal = str_copy(
@@ -78,15 +75,12 @@ token_t **parser(
 					parser_index += 1;
 					continue_format = false;
 				}
-				else if (!includes(
-					middle_type_specifiers,
-					*raw_tokens[raw_index + shifting]->literal
-				))
+				else if (!includes(middle_type_specifiers,
+					*raw_tokens[raw_index + shifting]->literal))
 				{
 					SET_NORMAL_TOKEN(parse_tokens, parser_index, raw_tokens, raw_index);
 					break;
 				}
-			}
 		}
 		else
 		{
