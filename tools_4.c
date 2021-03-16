@@ -1,9 +1,9 @@
 #include "holberton.h"
 /**
- * _strspn -
- * @s:
- * @accept:
- * Return:
+ * _strspn - function
+ * @s: variable
+ * @accept: variable
+ * Return: acumulator
  */
 unsigned int _strspn(char *s, char *accept)
 {
@@ -18,9 +18,9 @@ unsigned int _strspn(char *s, char *accept)
 	return (acumulator);
 }
 /**
- * _strlen_recursion -
- * @s:
- * Return:
+ * _strlen_recursion - function that makes a recursion
+ * @s: variable
+ * Return: 0
  */
 int _strlen_recursion(char *s)
 {
