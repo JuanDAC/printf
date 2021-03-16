@@ -1,12 +1,12 @@
 #include "holberton.h"
 
-void set_normal_token(token_t **PT, int PI, token_t **RT, int RI )
+void set_normal_token(token_t **PT, int *PI, token_t **RT, int RI )
 {
-	PT[PI] = RT[RI];
-	PT[PI]->literal = str_copy(
+	PT[*PI] = RT[RI];
+	PT[*PI]->literal = str_copy(
 	RT[RI]->literal, 0);
-	PT[PI]->type = normal_string;
-	PI += 1;
+	PT[*PI]->type = normal_string;
+	(*PI) += 1;
 }
 
 
@@ -83,8 +83,8 @@ token_t **parser(const garbage_collector_t *GC, token_t **raw_tokens)
 		}
 		else
 		{
-			//set_normal_token();
-			SET_NORMAL_TOKEN(parse_tokens, parser_index, raw_tokens, raw_index);
+			set_normal_token(parse_tokens, parser_index, raw_tokens, raw_index);
+			//SET_NORMAL_TOKEN(parse_tokens, parser_index, raw_tokens, raw_index);
 		}
 	parse_tokens[parser_index] = NULL;
 	return (parse_tokens);
