@@ -28,7 +28,7 @@ int paser_int(char *s)
 	processed_number = number_raw * _pow(10, length_str(s, false)) / 10;
 	return (
 		(*s == '-')
-		? -1 * paserInt(s + 1)
+		? -1 * paser_int(s + 1)
 		: processed_number + paser_int(s + 1)
 	);
 }
