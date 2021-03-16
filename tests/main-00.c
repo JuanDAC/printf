@@ -1,6 +1,9 @@
 #include "../holberton.h"
 #include <stdio.h>
-
+/**
+ * main - function
+ * Return: 0
+ */
 int main(void)
 {
 	int my_len = 0;
