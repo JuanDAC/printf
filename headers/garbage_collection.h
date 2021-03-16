@@ -11,5 +11,6 @@ typedef struct _garbage
 	void *(*free_all)(void *garbage_collector_t);
 } garbage_collector_t;
 
+ge_collector_t create_garbage_collector(garbage_collector_t *GC);
 
 #endif /* GARBAGE_COLLETION */
