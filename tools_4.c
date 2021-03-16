@@ -30,7 +30,6 @@ int _strlen_recursion(char *s)
 	}
 	return (0);
 }
-#include "holberton.h"
 /**
  * return_hexa - hexa
  * @n: ene
@@ -61,6 +60,49 @@ char *return_hexa(int n)
 		a[i] = f % base + 48;
 		if (f % base > 9)
 			a[i] = f % base + 48 + 39;
+		f /= base;
+		++i;
+	}
+	for (j = i - 1; j >= 0; j--, k++)
+	{
+		copy_a[k] = a[j];
+	}
+	copy_a[k] = '\0';
+	return (copy_a);
+}
+/**
+ * return_binary - print_binary
+ * @n: to  covert to binary
+ * Return: char
+ */
+char *return_binary(int n)
+{
+	char *a, *copy_a;
+	int i = 0, j, k, base = 2;
+	int f = n;
+
+	while (f > 0)
+	{
+		f /= base;
+		++i;
+	}
+	if (f == 0)
+	{
+		copy_a = "0";
+		return (copy_a);
+	}
+	a = malloc(sizeof(char) * (i + 1));
+	copy_a = malloc(sizeof(char) * (i + 1));
+	if (!copy_a || !a)
+	{
+		free(a);
+		free(copy_a);
+		return (NULL);
+	}
+	i = 0, k = 0, f = n;
+	while (f > 0)
+	{
+		a[i] = f % base + 48;
 		f /= base;
 		++i;
 	}
