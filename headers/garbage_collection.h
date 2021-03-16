@@ -1,8 +1,7 @@
 #ifndef GARBAGE_COLLETION
 #define GARBAGE_COLLETION
-
-/* Garbage collection */
-/* Garbage collector */
+/* Garbage Collection*/
+/* Garbage Collector*/
 typedef struct _garbage
 {
 	void *subscriptions[1024];
