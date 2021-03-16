@@ -33,8 +33,6 @@ token_t *raw_lexical_analyzer(const garbage_collector_t *GC, char *character)
 			character,
 			equal_handler
 		);
-	/* else if (*character == '%' && (*(character + 1) == '%' || *(character + 1) == ' ')) */
-	/* current_token = create_token(GC, normal_percentage, character, equal_handler); */
 	else
 		current_token = create_token(GC, normal_string, character, equal_handler);
 
