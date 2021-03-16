@@ -83,7 +83,7 @@ token_t **parser(
 					*raw_tokens[raw_index + shifting]->literal
 				))
 				{
-
+					SET_NORMAL_TOKEN(parse_tokens, parser_index, raw_tokens, raw_index);
 					break;
 				}
 			}
