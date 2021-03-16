@@ -41,6 +41,7 @@ void print_number(char *buffer, int long n)
  * integer_handler - function handling integer
  * @list_variables: receive list
  * @attribute_length: receive quantity
+ * @GC: variable
  * Return:pointer chart
  */
 char *integer_handler(
@@ -86,6 +87,7 @@ char *integer_handler(
  * character_handler - function handling integer
  * @list_variables: receive list
  * @attribute_length: receive quantity
+ * @GC: variable
  * Return:pointer chart
  */
 char *character_handler(
@@ -119,6 +121,7 @@ char *character_handler(
  * character_handler - function handling integer
  * @list_variables: receive list
  * @attribute_length: receive quantity
+ * @GC: variable
  * Return:pointer chart
  */
 char *string_handler(
