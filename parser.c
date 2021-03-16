@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-void set_normal_token(token_t **PT, int *PI, token_t **RT, int RI )
+void set_normal_token(token_t **PT, int *PI, token_t **RT, int RI)
 {
 	PT[*PI] = RT[RI];
 	PT[*PI]->literal = str_copy(
