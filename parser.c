@@ -1,9 +1,9 @@
 #include "holberton.h"
 /**
- * selector_type -
- * @token:
- * current_character:
- * Return:
+ * selector_type -  function selector type
+ * @token: token
+ * @current_character: current character
+ * Return: void
  */
 void selector_type(token_t *token, char current_character)
 {
@@ -27,11 +27,11 @@ void selector_type(token_t *token, char current_character)
 	}
 }
 /**
- * parser -
- * @garbage_collector_t:
- * @GC:
- * @raw_tokens:
- * Return:
+ * parser - function parser
+ * @garbage_collector_t: variable garbage collector
+ * @GC: variable
+ * @raw_tokens: raw tokens
+ * Return: parse_tokens
  **/
 token_t **parser(
 	const garbage_collector_t *GC,
