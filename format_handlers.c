@@ -5,10 +5,10 @@
  * @n:receives int
  * Return: 0
  */
-void print_number(char *buffer, int n)
+void print_number(char *buffer, int long n)
 {
-	int length = 10;
-	int number = n;
+	unsigned int length = 10;
+	unsigned int number = n;
 
 	if (n < 0)
 		number = (-n);
@@ -25,7 +25,7 @@ void print_number(char *buffer, int n)
 			n = (-n);
 			*buffer = '-';
 			buffer++;
-			/* n *= 100; */
+			n *= 100;
 		}
 		for (; n > 0; n /= 100)
 			length *= 10;
@@ -36,7 +36,6 @@ void print_number(char *buffer, int n)
 				buffer++;
 			}
 	}
-	buffer = '\0';
 }
 /**
  * integer_handler - function handling integer
@@ -54,8 +53,8 @@ char *integer_handler(va_list list_variables, const int attribute_length, ...)
 
 	va_start(attributes, attribute_length);
 
-	/* buffer = _calloc(1024, sizeof(char)); */
-	buffer = malloc(1024 * sizeof(char));
+	buffer = _calloc(1024, sizeof(char));
+	/* buffer = malloc(1024 * sizeof(char)); */
 	if (buffer == NULL)
 		return (NULL);
 

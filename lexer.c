@@ -62,8 +62,7 @@ token_t *raw_lexical_analyzer(const garbage_collector_t *GC, char *character)
  */
 token_t **lexer(
 	const garbage_collector_t *GC,
-	const char *format,
-	int *attribute_length
+	const char *format
 )
 {
 	int i;
@@ -73,17 +72,12 @@ token_t **lexer(
 	raw_tokens = malloc(1024 * sizeof(token_t));
 	if (raw_tokens == NULL)
 		return (NULL);
+
 	current_format = (char *)format;
 
 	for (i = 0; format[i] != '\0'; i++)
-	{
 		raw_tokens[i] = raw_lexical_analyzer(GC, current_format + i);
-		if (raw_tokens[i]->type == formated)
-			*(attribute_length) += 1;
-	}
+
 	raw_tokens[i] = NULL;
-
-
 	return (raw_tokens);
-
 }

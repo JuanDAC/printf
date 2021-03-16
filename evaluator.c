@@ -22,14 +22,47 @@ char *(*handler_selector(token_t *token))(va_list list_variables,
 }
 
 
-char **evaluator(
+char *cure_buffer(char **raw_buffer)
+{
+	unsigned long i, j, k;
+	char *buffer;
+
+	buffer = malloc(sizeof(char) * RAW_SIZE);
+	if (buffer == NULL)
+		return (NULL);
+
+	for (i = 0, j = 0; raw_buffer[i] ; i++)
+	{
+		if (length_str(raw_buffer[i], false) == 1)
+		{
+			buffer[j] = *raw_buffer[i];
+			j++;
+		}
+		else
+		{
+			for (k = 0; k < length_str(raw_buffer[i], false); k++)
+				buffer[j + k] = raw_buffer[i][k];
+			j += k;
+		}
+	}
+	buffer[j] = '\0';
+
+	return (buffer);
+}
+
+
+char *evaluator(
 	const garbage_collector_t *GC,
 	token_t *tokens[],
-	va_list list_variables,
-	char **buffer_acumulator
+	va_list list_variables
 )
 {
 	int i;
+	char **buffer_acumulator;
+
+	buffer_acumulator = malloc(sizeof(char *) * RAW_SIZE);
+	if (buffer_acumulator == NULL)
+		return (NULL);
 
 	(void)GC;
 	for (i = 0; tokens[i]; i++)
@@ -55,6 +88,6 @@ char **evaluator(
 		}
 	}
 	buffer_acumulator[i] = NULL;
-	return (buffer_acumulator);
+	return (cure_buffer(buffer_acumulator));
 }
 
