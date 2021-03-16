@@ -1,11 +1,11 @@
 #include "holberton.h"
 /**
- * create_token -
- * @GC:
- * @type:
- * @literal:
- * @type_handler
- * Return:
+ * create_token - Create a Token.
+ * @GC: variable
+ * @type: type token
+ * @literal: Literal variable
+ * @type_handler: variable type handler
+ * Return: new_token
  */
 token_t *create_token(
 	const garbage_collector_t *GC,
@@ -26,12 +26,11 @@ token_t *create_token(
 
 	return (new_token);
 }
-
 /**
- * raw_lexical_analyzer -
- * @GC:
- * @character:
- * Return:
+ * raw_lexical_analyzer - function
+ * @GC: variable
+ * @character: Character variable
+ * Return: current_token
  */
 token_t *raw_lexical_analyzer(const garbage_collector_t *GC, char *character)
 {
@@ -54,11 +53,11 @@ token_t *raw_lexical_analyzer(const garbage_collector_t *GC, char *character)
 	return (current_token);
 }
 /**
- * lexer -
- * @GC:
- * @format:
- * @attribute_length:
- * Return:
+ * lexer - lexer function
+ * @GC: variable
+ * @format: format variable
+ * @attribute_length: Variable
+ * Return: raw_token
  */
 token_t **lexer(
 	const garbage_collector_t *GC,
