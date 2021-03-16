@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ * string_number_alt -
+ * @buffer:
+ * @n:
+ * Return:
+ */
 void string_number_alt(char *buffer, int long n)
 {
 	unsigned long scale, unit, i = 0;
@@ -26,14 +31,22 @@ void string_number_alt(char *buffer, int long n)
 	}
 	buffer[i] = '0' + (n / scale);
 }
-
+/**
+ * _abs -
+ * @n:
+ * Return:
+ */
 int _abs(int n)
 {
 	if (n < 0)
 		return (-(n));
 	return (n);
 }
-
+/**
+ * _isalpha -
+ * @c:
+ * Return:
+ */
 int _isalpha(int c)
 {
 	if ((c >= 97 && c <= 122) || (c >= 65 && c <= 90))
@@ -41,5 +54,3 @@ int _isalpha(int c)
 	else
 		return (0);
 }
-
-
