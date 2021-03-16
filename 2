@@ -23,10 +23,11 @@ int _printf(const char *format, ...)
 			attribute_length++;
 
 	raw_buffer = evaluator(GC, tokens, raw_argument_list, raw_buffer);
+	write(1, "fin evaluator:\n", 10);
 	for (i = 0; raw_buffer[i] ; i++)
 		write(1, raw_buffer[i], length_str(raw_buffer[i], false));
-
-	/* write(1, buffer, length_buffer); */
+	
+	// write(1, buffer, length_buffer);
 
 	return (length_buffer);
 }

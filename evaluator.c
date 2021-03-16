@@ -30,7 +30,7 @@ char **evaluator(
 	int i;
 
 	(void)GC;
-	for (i = 0; tokens[i]->type != null; i++)
+	for (i = 0; tokens[i]; i++)
 	{
 		switch (tokens[i]->type_handler)
 		{
@@ -52,7 +52,6 @@ char **evaluator(
 				break;
 		}
 	}
-	// write(1, buffer_acumulator[0], 1);
 	buffer_acumulator[i] = NULL;
 	return (buffer_acumulator);
 }
