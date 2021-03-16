@@ -6,7 +6,6 @@ token_t **parser(
 	token_t **raw_tokens
 );
 
-	PI += 1;
 
 #endif /* PARSE_H */
 
