@@ -8,13 +8,12 @@ token_t **parser(
 	token_t **raw_tokens
 );
 
-#define SET_NORMAL_TOKEN(PT, PI, RT, RI)                   \
-	parse_tokens[parser_index] = raw_tokens[raw_index];\
-	parse_tokens[parser_index]->literal = str_copy(    \
-		raw_tokens[raw_index]->literal, 0);            \
-	parse_tokens[parser_index]->type = normal_string;  \
-	parser_index += 1;
-
-
+#define SET_NORMAL_TOKEN(PT, PI, RT, RI)    \
+	PT[PI] = RT[RI];                        \
+	PT[PI]->literal = str_copy(             \
+		RT[RI]->literal, 0);                \
+	PT[PI]->type = normal_string;           \
+	PI += 1;
 
 #endif /* PARSE_H */
+
