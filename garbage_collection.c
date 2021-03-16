@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ * _malloc - guarda en memoria
+ * @GC: garbage collector
+ * @size: size
+ * Return: puntero en una nueva posicion
+ */
 void *_malloc(garbage_collector_t *GC, size_t size)
 {
 	GC->subscriptions[GC->malloc_acumulator] = malloc(size);
@@ -8,7 +13,11 @@ void *_malloc(garbage_collector_t *GC, size_t size)
 	GC->malloc_acumulator++;
 	return (GC->subscriptions[GC->malloc_acumulator - 1]);
 }
-
+/**
+ * _free_all - libera
+ * @GC: garbage collector
+ * Return: always void
+ */
 void _free_all(garbage_collector_t *GC)
 {
 	while (GC->malloc_acumulator > 0)
@@ -18,6 +27,10 @@ void _free_all(garbage_collector_t *GC)
 	}
 }
 
+/**
+ * create_garbage_collector - create garbage collector
+ * Return: GC
+ */
 garbage_collector_t *create_garbage_collector(void)
 {
 	garbage_collector_t *GC;
@@ -41,4 +54,3 @@ garbage_collector_t *create_garbage_collector(void)
 
 	return (GC);
 }
-
