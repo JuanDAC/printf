@@ -46,7 +46,7 @@ char *_strcat(char *dest, char *src)
 /**
  * rot13 - check the code
  * @n: the variable
- * Retuern: n
+ * Return: n
  */
 char *rot13(char *n)
 {
@@ -64,10 +64,10 @@ char *rot13(char *n)
 	return (n);
 }
 /**
- * str_concat - 
- * @s1:
- * @s2:
- * Return:
+ * str_concat - function
+ * @s1: char
+ * @s2: cahr
+ * Return: k
  */
 char *str_concat(char *s1, char *s2)
 {
@@ -96,9 +96,9 @@ char *str_concat(char *s1, char *s2)
 	return (k);
 }
 /**
- * get_scale -
- * @n:
- * Return:
+ * get_scale - function
+ * @n: int
+ * Return: 1
  */
 int get_scale(int n)
 {
