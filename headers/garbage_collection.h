@@ -15,10 +15,10 @@ typedef struct _garbage
 
 	int long malloc_acumulator;
 
-	void *(*malloc)(void *garbage_collector_t, size_t size);
-	void *(*free_all)(void *garbage_collector_t);
+	void *(*malloc)(garbage_collector_t *GC, size_t size);
+	void (*free_all)(garbage_collector_t *GC);
 } garbage_collector_t;
 
-garbage_collector_t create_garbage_collector(void);
+garbage_collector_t *create_garbage_collector(void);
 
 #endif /* GARBAGE_COLLETION */

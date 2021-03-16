@@ -1,7 +1,5 @@
 #include "holberton.h"
 
-
-
 void *_malloc(garbage_collector_t *GC, size_t size)
 {
 	GC->subscriptions[GC->malloc_acumulator] = malloc(size);
@@ -20,7 +18,7 @@ void _free_all(garbage_collector_t *GC)
 	}
 }
 
-garbage_collector_t create_garbage_collector(void)
+garbage_collector_t *create_garbage_collector(void)
 {
 	garbage_collector_t *GC;
 
