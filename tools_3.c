@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ * _calloc -
+ * @nmemb:
+ * @size:
+ * Return:
+ */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *buffer;
@@ -13,12 +18,21 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		*(buffer + i) = 0;
 	return ((void *)buffer);
 }
-
+/**
+ * _pow -
+ * @base:
+ * @expo:
+ * Return:
+ */
 int _pow(int base, int expo)
 {
 	return ((expo == 0) ? 1 : (base * _pow(base, expo - 1)));
 }
-
+/**
+ * paser_int -
+ * @s:
+ * Return:
+ */
 int paser_int(char *s)
 {
 	int number_raw, processed_number;
@@ -32,10 +46,14 @@ int paser_int(char *s)
 		: processed_number + paser_int(s + 1)
 	);
 }
+/**
+ * is_number -
+ * @s:
+ * Return:
+ */
 int is_number(char *s)
 {
 	if (s == '\0')
 		return (true);
 	return (((*s >= '0' && *s <= '9') || *s == '-') && is_number(s + 1));
 }
-
