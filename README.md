@@ -21,8 +21,8 @@
         _printf("%c\n", 'H');
         return (0);
     }
-```
-<iframe width="768" height="432" src="https://miro.com/app/live-embed/o9J_lSvfyTE=/?moveToViewport=64518,-3261,10798,8219" frameBorder="0" scrolling="no" allowFullScreen></iframe>
+``
+
 
 |Requirements|
 |----------------|
