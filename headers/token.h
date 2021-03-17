@@ -53,7 +53,7 @@ typedef enum _token_type
 	scientifi_notation,
 	shortest_among,
 	long_doble_float,
-	long_integer,
+	long_integer
 } token_type;
 /**
  * enum _handler_function - manejador de parametros de funciones
@@ -65,7 +65,7 @@ typedef enum _handler_function
 {
 	equal_handler,
 	simple_handler,
-	complex_handler,
+	complex_handler
 } handler_function_t;
 
 /**
