@@ -1,8 +1,27 @@
-# Welcome to \_printf!
+# Welcome to \_printf! :pencil2:
 |\_printf|
 |----------------------------------|
 |\_printf is the function for c language to make formatted prints. This document explains how printf works and how to design the right format specification for any occasion|
 
+```c
+    #include "holberton.h"
+    /**
+    * Filename: main.c
+    * main - Entry point
+    *
+    * Return: Always 0
+    */
+    int main(void)
+    {
+        /* Print strings */
+        _printf("Hello %s\n", "World");
+        /* Print integers */
+        _printf("%d\n", 1024);
+        /* Print a single char */
+        _printf("%c\n", 'H');
+        return (0);
+    }
+```
 
 
 |Requirements|
@@ -10,7 +29,7 @@
 |General|
 |Allowed editors: vi, vim, emacs|
 |All your files will be compiled on Ubuntu 14.04 LTS|
-|Your programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic|
+|Your programs and functions will be compiled with gcc 4.8.4 using the flags ``gcc -Wall -Werror -Wextra -pedantic -Wno-format --std=c90 *.c ``|
 |All your files should end with a new line|
 |A README.md file, at the root of the folder of the project is mandatory|
 |Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl|
