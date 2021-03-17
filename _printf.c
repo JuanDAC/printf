@@ -19,6 +19,8 @@ int _printf(const char *format, ...)
 	GC = create_garbage_collector();
 
 	buffer = evaluator(GC, parser(GC, lexer(GC, format)), raw_argument_list);
+	if (buffer == NULL)
+		return (-1);
 
 	length_buffer = length_str(buffer, false);
 	write(1, buffer, length_buffer);
