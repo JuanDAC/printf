@@ -21,8 +21,9 @@
         _printf("%c\n", 'H');
         return (0);
     }
-``
+```
 
+<img align="center" src="https://raw.githubusercontent.com/JuanDAC/printf/main/img/printf.jpg" alt="My structure project"/>
 
 |Requirements|
 |----------------|
