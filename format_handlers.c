@@ -135,8 +135,6 @@ char *string_handler(
 	(void)GC;
 
 
-	/* buffer = _calloc(RAW_SIZE, sizeof(char)); */
-
 	va_start(attributes, attribute_length);
 
 	buffer = (char *)va_arg(list_variables, char *);
@@ -168,8 +166,9 @@ char *percentage_escape_handler(
 	(void)list_variables;
 	(void)attribute_length;
 
-	buffer = _calloc(2, sizeof(char));
+	buffer = GC->malloc(GC, 2 * sizeof(char));
 	*buffer = '%';
+	*(buffer + 1) = '\0';
 
 	return (buffer);
 }
