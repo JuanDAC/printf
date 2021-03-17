@@ -29,6 +29,7 @@ int includes(char *s, char c)
 
 /**
  * string_nconcat - enters a pointer
+ * @GC: Receive a character
  * @s1: Receive a character
  * @s2: Receive a character
  * @n: Receive a unsigned
@@ -87,6 +88,7 @@ char *str_copy(garbage_collector_t *GC, char *from_string, unsigned int length)
 
 /**
  * _strdup - Dynamic memory copy
+ * @GC: Character address
  * @str: Character address
  * Return: new_str
  */

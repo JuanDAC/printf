@@ -47,8 +47,8 @@ char *return_hexa(garbage_collector_t *GC, int n)
 		f /= base;
 		++i;
 	}
-	a = malloc(sizeof(char) * (i + 1));
-	copy_a = malloc(sizeof(char) * (i + 1));
+	a = GC->malloc(GC, sizeof(char) * (i + 1));
+	copy_a = GC->malloc(GC, sizeof(char) * (i + 1));
 	if (!copy_a || !a)
 	{
 		free(a);
@@ -93,8 +93,8 @@ char *return_binary(garbage_collector_t *GC, int n)
 		copy_a = "0";
 		return (copy_a);
 	}
-	a = malloc(sizeof(char) * (i + 1));
-	copy_a = malloc(sizeof(char) * (i + 1));
+	a = GC->malloc(GC, sizeof(char) * (i + 1));
+	copy_a = GC->malloc(GC, sizeof(char) * (i + 1));
 	if (!copy_a || !a)
 	{
 		free(a);
