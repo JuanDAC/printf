@@ -65,11 +65,12 @@ char *rot13(char *n)
 }
 /**
  * str_concat - function
+ * @GC: char
  * @s1: char
  * @s2: cahr
  * Return: k
  */
-char *str_concat(char *s1, char *s2)
+char *str_concat(garbage_collector_t *GC, char *s1, char *s2)
 {
 	unsigned int i, j, length_s1 = 0, length_s2 = 0;
 	char *k;
@@ -82,7 +83,7 @@ char *str_concat(char *s1, char *s2)
 
 	length_s1 = length_str(s1, false);
 	length_s2 = length_str(s2, false);
-	k = malloc(sizeof(char) * (length_s1 + length_s2 - 1));
+	k = GC->malloc(GC, sizeof(char) * (length_s1 + length_s2 - 1));
 
 	if (k == NULL)
 		return (NULL);

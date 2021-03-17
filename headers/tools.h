@@ -3,8 +3,9 @@
 void print_rev(char *buffer, char *s);
 char *_strcat(char *dest, char *src);
 char *rot13(char *n);
-char *str_concat(char *s1, char *s2);
+char *str_concat(garbage_collector_t *GC, char *s1, char *s2);
 int get_scale(int n);
+char *return_hexa(garbage_collector_t *GC, int n);
 int _abs(int n);
 int _isalpha(int c);
 void *_calloc(unsigned int nmemb, unsigned int size);
