@@ -20,10 +20,9 @@
 | - **parser             |- enmun _token_type        |
 | - garbage_collector_t  |- enum_handler_function    |
 |                        |- struct _token|           |
-|                        |- struct _link_token       |
-| TOOLS                  | 	TYPES
-| - print_rev            | -enum_boolean
-| - *_strcat             |
+| TOOLS                  |- struct _link_token
+| - print_rev            |  TYPES
+| - *_strcat             |- enum_boolean
 | - *rot13               |
 | - *str_concat          |
 | - get_scale            |
