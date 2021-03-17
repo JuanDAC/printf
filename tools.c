@@ -34,7 +34,7 @@ int includes(char *s, char c)
  * @n: Receive a unsigned
  * Return: always 0 secces
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+char *string_nconcat(garbage_collector_t *GC, char *s1, char *s2, unsigned int n)
 {
 	char *n_concat_string;
 	unsigned int min_length;
@@ -44,7 +44,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	s2 = (s2 == NULL) ? ("") : s2;
 	min_length = (n <= length_str(s2, false)) ? n : length_str(s2, false);
 	string_length = length_str(s1, false) + min_length + 1;
-	n_concat_string = malloc(string_length * sizeof(*n_concat_string));
+	n_concat_string = GC->malloc(GC, string_length * sizeof(*n_concat_string));
 
 	if (n_concat_string == NULL)
 		return (NULL);
@@ -89,7 +89,7 @@ char *str_copy(garbage_collector_t *GC, char *from_string, unsigned int length)
  * @str: Character address
  * Return: new_str
  */
-char *_strdup(char *str)
+char *_strdup(garbage_collector_t *GC, char *str)
 {
 	char *new_str;
 	unsigned int i, longitud;
