@@ -2,6 +2,7 @@
 |\_printf|
 |----------------------------------|
 |\_printf is the function for c language to make formatted prints. This document explains how printf works and how to design the right format specification for any occasion|
+## How is it used?
 
 ```c
     #include "holberton.h"
@@ -22,7 +23,6 @@
         return (0);
     }
 ```
-## ¿How is it used?
 
 <img align="center" src="https://raw.githubusercontent.com/JuanDAC/printf/main/img/printf.jpg" alt="My structure project"/>
 
