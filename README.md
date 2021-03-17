@@ -1,6 +1,7 @@
-|Printf|
+# Welcome to \_printf!
+|\_printf|
 |----------------------------------|
-|Printf is the C language function to do formatted printing. The same function is also available in PERL. This paper explains how printf works, and how to design the proper formatting specification for any occasion.|
+|\_printf is the function for c language to make formatted prints. This document explains how printf works and how to design the right format specification for any occasion|
 |                                                                                                        |
 
 
