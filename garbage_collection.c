@@ -7,9 +7,17 @@
  */
 void *_malloc(garbage_collector_t *GC, size_t size)
 {
+	unsigned long i;
+
+	if (size == 0)
+		return (NULL);
 	GC->subscriptions[GC->malloc_acumulator] = malloc(size);
 	if (GC->subscriptions[GC->malloc_acumulator] == NULL)
 		return (NULL);
+
+	for (i = 0; i < size; i++)
+		*((char *)GC->subscriptions[GC->malloc_acumulator] + i) = 0;
+
 	GC->malloc_acumulator++;
 	return (GC->subscriptions[GC->malloc_acumulator - 1]);
 }

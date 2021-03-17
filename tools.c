@@ -63,20 +63,21 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 /**
  * str_copy - Copy a string
+ * @GC: garbage collector
  * @from_string: char
  * @length: unsigned
  * Return: new_string
  */
-char *str_copy(char *from_string, unsigned int length)
+char *str_copy(garbage_collector_t *GC, char *from_string, unsigned int length)
 {
 	unsigned int i;
 	char *new_string;
 
-	new_string = malloc((length + 1) * sizeof(*from_string));
+	new_string = GC->malloc(GC, (length + 1) * sizeof(*from_string));
 	if (new_string == NULL)
 		return (NULL);
 
-	for (i = 0; i <= length; i++)
+	for (i = 0; i < length; i++)
 		new_string[i] = from_string[i];
 	new_string[i] = '\0';
 

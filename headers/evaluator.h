@@ -9,7 +9,7 @@ typedef struct _handler_link
 {
 	token_type type;
 	char *(*handler)(
-		const garbage_collector_t *GC,
+		garbage_collector_t *GC,
 		va_list list_variables,
 		const int attribute_length,
 		...
@@ -17,7 +17,7 @@ typedef struct _handler_link
 } handler_link_t;
 
 char *evaluator(
-	const garbage_collector_t *GC,
+	garbage_collector_t *GC,
 	token_t *tokens[],
 	va_list list_variables
 );
@@ -29,7 +29,7 @@ char *evaluator(
  * Return: 0
  */
 char *(*handler_selector(token_t *token))(
-	const garbage_collector_t *GC,
+	garbage_collector_t *GC,
 	va_list list_variables,
 	const int attribute_length,
 	...

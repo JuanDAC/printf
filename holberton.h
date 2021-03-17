@@ -9,8 +9,8 @@
 /* OWN LIBRARIES */
 #include "./headers/constants.h"
 #include "./headers/types.h"
-#include "./headers/tools.h"
 #include "./headers/garbage_collection.h"
+#include "./headers/tools.h"
 #include "./headers/token.h"
 /* OWN LIBRARIES */
 #include "./headers/parser.h"

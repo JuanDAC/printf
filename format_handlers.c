@@ -45,7 +45,7 @@ void print_number(char *buffer, int long n)
  * Return:pointer chart
  */
 char *integer_handler(
-	const garbage_collector_t *GC,
+	garbage_collector_t *GC,
 	va_list list_variables,
 	const int attribute_length,
 	...
@@ -57,11 +57,9 @@ char *integer_handler(
 
 	int long current_number;
 
-	(void)GC;
-
 	va_start(attributes, attribute_length);
 
-	buffer = _calloc(RAW_SIZE, sizeof(char));
+	buffer = GC->malloc(GC, RAW_SIZE * sizeof(char));
 	/* buffer = malloc(1024 * sizeof(char)); */
 	if (buffer == NULL)
 		return (NULL);
@@ -91,7 +89,7 @@ char *integer_handler(
  * Return:pointer chart
  */
 char *character_handler(
-	const garbage_collector_t *GC,
+	garbage_collector_t *GC,
 	va_list list_variables,
 	const int attribute_length,
 	...
@@ -125,7 +123,7 @@ char *character_handler(
  * Return:pointer chart
  */
 char *string_handler(
-	const garbage_collector_t *GC,
+	garbage_collector_t *GC,
 	va_list list_variables,
 	const int attribute_length,
 	...
@@ -159,7 +157,7 @@ char *string_handler(
  * Return:pointer chart
  */
 char *percentage_escape_handler(
-	const garbage_collector_t *GC,
+	garbage_collector_t *GC,
 	va_list list_variables,
 	const int attribute_length,
 	...

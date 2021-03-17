@@ -7,8 +7,10 @@
  * Return: Alwais a function handler
  */
 char *(*handler_selector(token_t *token))(
-	const garbage_collector_t *GC, va_list list_variables,
-	const int attribute_length, ...
+	garbage_collector_t *GC
+	, va_list list_variables,
+	const int attribute_length,
+	...
 )
 {
 	int i;
@@ -39,14 +41,14 @@ char *(*handler_selector(token_t *token))(
  * @raw_buffer: raw buffer extract data
  * Return: cure_buffer ona dimencion or NULL error
  */
-char *cure_buffer(const garbage_collector_t *GC, char **raw_buffer)
+char *cure_buffer(garbage_collector_t *GC, char **raw_buffer)
 {
 	unsigned long i, j, k;
 	char *buffer;
 
 	(void)GC;
 
-	buffer = malloc(sizeof(char) * RAW_SIZE);
+	buffer = GC->malloc(GC, sizeof(char) * RAW_SIZE);
 	if (buffer == NULL)
 		return (NULL);
 
@@ -71,7 +73,7 @@ char *cure_buffer(const garbage_collector_t *GC, char **raw_buffer)
 
 
 char *evaluator(
-	const garbage_collector_t *GC,
+	garbage_collector_t *GC,
 	token_t *tokens[],
 	va_list list_variables
 )
@@ -79,7 +81,7 @@ char *evaluator(
 	int i;
 	char **buffer_acumulator;
 
-	buffer_acumulator = malloc(sizeof(char *) * RAW_SIZE);
+	buffer_acumulator = GC->malloc(GC, sizeof(char *) * RAW_SIZE);
 	if (buffer_acumulator == NULL)
 		return (NULL);
 
