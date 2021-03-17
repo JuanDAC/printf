@@ -32,10 +32,11 @@ int _strlen_recursion(char *s)
 }
 /**
  * return_hexa - hexa
+ * @GC: ene
  * @n: ene
  * Return: hexa in string
  */
-char *return_hexa(int n)
+char *return_hexa(garbage_collector_t *GC, int n)
 {
 	char *a = NULL, *copy_a = NULL;
 	int i = 0, j = 0, k = 0, base = 16;
@@ -72,10 +73,11 @@ char *return_hexa(int n)
 }
 /**
  * return_binary - print_binary
+ * @GC: to  covert to binary
  * @n: to  covert to binary
  * Return: char
  */
-char *return_binary(int n)
+char *return_binary(garbage_collector_t *GC, int n)
 {
 	char *a, *copy_a;
 	int i = 0, j, k, base = 2;
