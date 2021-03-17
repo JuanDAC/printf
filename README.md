@@ -22,6 +22,7 @@
         return (0);
     }
 ```
+## ¿How is it used?
 
 <img align="center" src="https://raw.githubusercontent.com/JuanDAC/printf/main/img/printf.jpg" alt="My structure project"/>
 
