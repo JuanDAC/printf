@@ -1,4 +1,6 @@
-# structuring with prototypes, data types and modules*percentage_escape_handler
+# structuring with prototypes, data types and modules*, percentage escape handler
+
+![strcct in c](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Structure-In-C.png)
 
 |constans      |
 |--------------|
