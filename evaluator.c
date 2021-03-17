@@ -48,7 +48,7 @@ char *cure_buffer(garbage_collector_t *GC, char **raw_buffer)
 
 	(void)GC;
 
-	buffer = GC->malloc(GC, sizeof(char) * RAW_SIZE);
+	buffer = GC->malloc(GC, sizeof(char) * 1024);
 	if (buffer == NULL)
 		return (NULL);
 
@@ -81,7 +81,7 @@ char *evaluator(
 	int i;
 	char **buffer_acumulator;
 
-	buffer_acumulator = GC->malloc(GC, sizeof(char *) * RAW_SIZE);
+	buffer_acumulator = GC->malloc(GC, sizeof(char *) * 1024);
 	if (buffer_acumulator == NULL)
 		return (NULL);
 

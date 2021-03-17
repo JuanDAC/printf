@@ -47,7 +47,7 @@ garbage_collector_t *create_garbage_collector(void)
 	if (GC == NULL)
 		return (NULL);
 
-	GC->subscriptions = malloc(RAW_SIZE * sizeof(void *));
+	GC->subscriptions = malloc(1024 * sizeof(void *));
 	if (GC->subscriptions == NULL)
 	{
 		free(GC);

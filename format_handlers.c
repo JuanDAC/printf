@@ -59,7 +59,7 @@ char *integer_handler(
 
 	va_start(attributes, attribute_length);
 
-	buffer = GC->malloc(GC, RAW_SIZE * sizeof(char));
+	buffer = GC->malloc(GC, 1024 * sizeof(char));
 	if (buffer == NULL)
 		return (NULL);
 

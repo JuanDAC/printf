@@ -12,7 +12,8 @@ int _printf(const char *format, ...)
 	char *buffer;
 	va_list raw_argument_list;
 
-	if (NULL_OR_ONLY_PERCENTAGE(format))
+	if (format == NULL
+		|| (*format == '%' && length_str((char *)format, false) == 1))
 		return (-1);
 
 	va_start(raw_argument_list, format);
