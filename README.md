@@ -2,7 +2,7 @@
 |\_printf|
 |----------------------------------|
 |\_printf is the function for c language to make formatted prints. This document explains how printf works and how to design the right format specification for any occasion|
-|                                                                                                        |
+
 
 
 |Requirements|
