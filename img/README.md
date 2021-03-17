@@ -8,11 +8,11 @@
 <th>Decription</th>
 </tr>
 <tr>
-<td> <a href="[https://github.com/JuanDAC/printf/blob/main/img/Funcion%20-pov%20y%20demas.jpg](https://github.com/JuanDAC/printf/blob/main/img/Funcion%20-pov%20y%20demas.jpg)">Imagen 1</a></td>  
+<td> <a href="https://github.com/JuanDAC/printf/blob/main/img/Funcion%20-pov%20y%20demas.jpg">Imagen 1</a></td>
 <td>flowchar1</td>
 </tr>
 <tr>
-<td> <a href="[https://github.com/JuanDAC/printf/blob/main/img/Funcion%20Calloc.jpg](https://github.com/JuanDAC/printf/blob/main/img/Funcion%20Calloc.jpg)">Imagen 2</a></td>  
+<td> <a href="https://github.com/JuanDAC/printf/blob/main/img/Funcion%20Calloc.jpg">Imagen 2</a></td>
 <td>flowchar2</td>
 </tr>
 <tr>
