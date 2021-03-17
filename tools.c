@@ -34,7 +34,8 @@ int includes(char *s, char c)
  * @n: Receive a unsigned
  * Return: always 0 secces
  */
-char *string_nconcat(garbage_collector_t *GC, char *s1, char *s2, unsigned int n)
+char *string_nconcat(garbage_collector_t *GC, char *s1,
+	char *s2, unsigned int n)
 {
 	char *n_concat_string;
 	unsigned int min_length;
@@ -97,7 +98,7 @@ char *_strdup(garbage_collector_t *GC, char *str)
 	if (str == NULL)
 		return (NULL);
 	longitud = length_str(str, true);
-	new_str = (char *)malloc(sizeof(char) * longitud);
+	new_str = (char *)GC->malloc(GC, sizeof(char) * longitud);
 
 	if (new_str == NULL || longitud == 0)
 		return (NULL);
