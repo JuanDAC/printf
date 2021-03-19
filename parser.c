@@ -35,6 +35,7 @@ void selector_type(token_t *token, char current_character)
 		{'d', integer},
 		{'i', generic_integer},
 		{'%', percentage_escape},
+		{'u', unsigned_integer},
 		{'\0', null}
 	};
 

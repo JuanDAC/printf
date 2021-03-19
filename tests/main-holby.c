@@ -129,6 +129,16 @@ int main(void)
 	len2 = printf("%c", '\0');
 	printf("diference %d, %d\n", len, len2);
 
+	len = _printf("%d", 0);
+	len2 = printf("%d", 0);
+	printf("diference %d, %d\n", len, len2);
+
+	len = _printf("_%d\n", INT_MAX);
+	len2 = printf(" %d\n", INT_MAX);
+	printf("diference %d, %d\n", len, len2);
+
+
+
 
 	return (0);
 }

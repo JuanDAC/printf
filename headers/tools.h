@@ -1,6 +1,16 @@
 #ifndef TOOLS_H
 #define TOOLS_H
-void print_rev(char *buffer, char *s);
+
+bool reverse(char *buffer, size_t string_len);
+size_t unsigned_long_int_to_string(
+	char *buffer,
+	unsigned long int n
+);
+size_t long_int_to_string(
+	char *buffer,
+	long int n
+);
+
 char *_strcat(char *dest, char *src);
 char *rot13(char *n);
 char *str_concat(garbage_collector_t *GC, char *s1, char *s2);

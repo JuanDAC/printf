@@ -1,54 +1,4 @@
 #include "holberton.h"
-/**
- * print_number - prints an integer
- * @buffer:receives whole
- * @n:receives int
- * Return: 0
- */
-void print_number(char *buffer, int long n)
-{
-	unsigned int length = 10;
-	unsigned int number = n;
-	unsigned int i = 0;
-	unsigned int num = n;
-
-	if (n < 0)
-		number = (-n);
-
-	if (n == 0)
-	{
-		buffer[i] = '0';
-		i++;
-	}
-	else
-	{
-		if (n < 0)
-		{
-			n = (-n);
-			buffer[i] = '-';
-			i++;
-			n *= 100;
-		}
-		for (; n > 0; n /= 100)
-			length *= 10;
-		for (n = length; n > 0; n /= 10)
-			if (!(n == length && ((number / n) % 10) == 0))
-			{
-				buffer[i] = ('0' + (number / n) % 10);
-				i++;
-			}
-	}
-
-	if (num <= 9)
-	{
-		buffer[0] = buffer[1];
-		buffer[1] = '\0';
-	}
-}
-
-
-
-
 
 /**
  * integer_handler - function handling integer
@@ -68,7 +18,7 @@ char *integer_handler(
 	char *format;
 	char *buffer;
 
-	int long current_number;
+	long int current_number;
 
 	va_start(attributes, attribute_length);
 
@@ -78,8 +28,8 @@ char *integer_handler(
 
 	if (attribute_length == 1)
 	{
-		current_number = (int long)va_arg(list_variables, int);
-		print_number(buffer, current_number);
+		current_number = (long int)va_arg(list_variables, int);
+		long_int_to_string(buffer, current_number);
 	}
 	else/* if (attribute_length == 2) */
 	{
@@ -87,7 +37,7 @@ char *integer_handler(
 		/* add handler format */
 		(void)format;
 		current_number = (int)va_arg(list_variables, int);
-		print_number(buffer, (current_number));
+		long_int_to_string(buffer, (current_number));
 	}
 
 	va_end(attributes);

@@ -1,6 +1,8 @@
 #!/bin/bash
 # --std=c90
-COMMANDS="gcc -g -Wall -Werror -Wextra -pedantic -Wno-format *.c";
+# -Werror
+#  -Wall -Wextra -pedantic
+COMMANDS="gcc -g -Werror -Wall -Wextra -pedantic -pedantic -Wno-format *.c";
 ACTIONS=("test" "vagrind" "gdb" "diff");
 DIRECTORY_BUILD="build";
 DIRECTORY_TEST="tests";
