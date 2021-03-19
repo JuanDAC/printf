@@ -121,13 +121,13 @@ int main(void)
 	len2 = printf(str);
 	printf("diference %d, %d\n", len, len2);
 
-	len = _printf(NULL);
-	len2 = printf(NULL);
+	//len = _printf("man gcc:\n%s", str);
+	//len2 = printf("man gcc:\n%s", str);
+	//printf("diference %d, %d\n", len, len2);
+
+	len = _printf("%c", '\0');
+	len2 = printf("%c", '\0');
 	printf("diference %d, %d\n", len, len2);
-
-
-
-
 
 
 	return (0);

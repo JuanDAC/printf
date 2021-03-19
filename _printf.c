@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 	if (buffer == NULL)
 		return (-1);
 
-	length_buffer = length_str(buffer, false);
+	length_buffer = length_str(buffer, false) ? length_str(buffer, false) : 1;
 	write(1, buffer, length_buffer);
 
 	va_end(raw_argument_list);
@@ -32,3 +32,4 @@ int _printf(const char *format, ...)
 	free(GC);
 	return (length_buffer);
 }
+
