@@ -44,10 +44,10 @@ typedef enum _token_type
 	integer,
 	generic_integer,
 	percentage_escape,
+	unsigned_integer,
 	/* advanced */
 	ocatal_integer,
 	hexadecimal_integer,
-	unsigned_integer,
 	short_integer,
 	float_point,
 	scientifi_notation,

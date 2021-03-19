@@ -66,7 +66,7 @@ token_t **lexer(
 	char *current_format;
 	token_t **raw_tokens;
 
-	raw_tokens = GC->malloc(GC, 1024 * sizeof(token_t));
+	raw_tokens = GC->malloc(GC, BUFFER_SIZE * sizeof(token_t));
 	if (raw_tokens == NULL)
 		return (NULL);
 

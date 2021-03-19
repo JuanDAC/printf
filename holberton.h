@@ -7,6 +7,7 @@
 #include <stdarg.h>
 
 /* OWN LIBRARIES */
+#include "./headers/constants.h"
 #include "./headers/types.h"
 #include "./headers/garbage_collection.h"
 #include "./headers/tools.h"

@@ -9,22 +9,24 @@ void print_number(char *buffer, int long n)
 {
 	unsigned int length = 10;
 	unsigned int number = n;
+	unsigned int i = 0;
+	unsigned int num = n;
 
 	if (n < 0)
 		number = (-n);
 
 	if (n == 0)
 	{
-		*buffer = '0';
-		buffer++;
+		buffer[i] = '0';
+		i++;
 	}
 	else
 	{
 		if (n < 0)
 		{
 			n = (-n);
-			*buffer = '-';
-			buffer++;
+			buffer[i] = '-';
+			i++;
 			n *= 100;
 		}
 		for (; n > 0; n /= 100)
@@ -32,11 +34,22 @@ void print_number(char *buffer, int long n)
 		for (n = length; n > 0; n /= 10)
 			if (!(n == length && ((number / n) % 10) == 0))
 			{
-				*buffer = ('0' + (number / n) % 10);
-				buffer++;
+				buffer[i] = ('0' + (number / n) % 10);
+				i++;
 			}
 	}
+
+	if (num <= 9)
+	{
+		buffer[0] = buffer[1];
+		buffer[1] = '\0';
+	}
 }
+
+
+
+
+
 /**
  * integer_handler - function handling integer
  * @list_variables: receive list
@@ -59,7 +72,7 @@ char *integer_handler(
 
 	va_start(attributes, attribute_length);
 
-	buffer = GC->malloc(GC, 1024 * sizeof(char));
+	buffer = GC->malloc(GC, BUFFER_SIZE * sizeof(char));
 	if (buffer == NULL)
 		return (NULL);
 
@@ -68,7 +81,7 @@ char *integer_handler(
 		current_number = (int long)va_arg(list_variables, int);
 		print_number(buffer, current_number);
 	}
-	else /* if (attribute_length == 2) */
+	else/* if (attribute_length == 2) */
 	{
 		format = va_arg(attributes, char *);
 		/* add handler format */
@@ -80,6 +93,8 @@ char *integer_handler(
 	va_end(attributes);
 	return (buffer);
 }
+
+
 /**
  * character_handler - function handling integer
  * @list_variables: receive list
@@ -131,6 +146,7 @@ char *string_handler(
 	va_list attributes;
 	char *format;
 	char *buffer;
+	int i;
 
 	(void)GC;
 
@@ -138,6 +154,12 @@ char *string_handler(
 	va_start(attributes, attribute_length);
 
 	buffer = (char *)va_arg(list_variables, char *);
+	if (buffer == NULL)
+	{
+		buffer = GC->malloc(GC, sizeof(char) * STR_NULL_LON);
+		for (i = 0; i < STR_NULL_LON; i++)
+			buffer[i] = STR_NULL[i];
+	}
 	if (attribute_length > 1)
 	{
 		format = va_arg(attributes, char *);
@@ -172,25 +194,5 @@ char *percentage_escape_handler(
 
 	return (buffer);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

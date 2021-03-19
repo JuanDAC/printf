@@ -12,13 +12,13 @@ int _printf(const char *format, ...)
 	char *buffer;
 	va_list raw_argument_list;
 
-	if (format == NULL
-		|| (*format == '%' && length_str((char *)format, false) == 1))
+	if (NULL_OR_ONLY_PERCENTAGE(format))
 		return (-1);
 
 	va_start(raw_argument_list, format);
 	GC = create_garbage_collector();
 
+	HANDLER_EXCEED_BUFFER(buffer, format)
 	buffer = evaluator(GC, parser(GC, lexer(GC, format)), raw_argument_list);
 	if (buffer == NULL)
 		return (-1);

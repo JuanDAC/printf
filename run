@@ -1,17 +1,19 @@
 #!/bin/bash
-
-COMMANDS="gcc -g -Wall -Werror -Wextra -pedantic -Wno-format --std=c90 *.c";
+# --std=c90
+COMMANDS="gcc -g -Wall -Werror -Wextra -pedantic -Wno-format *.c";
 ACTIONS=("test" "vagrind" "gdb" "diff");
 DIRECTORY_BUILD="build";
 DIRECTORY_TEST="tests";
 ARGUMENTS=("$@")
 NO_HASH_TO_ACTION=1;
+SUFFIX="";
+PREFFIX="";
 
 test()
 {
 	local SUFFIX="$1";
 	$(echo sudo "$COMMANDS" ./tests/main-"$SUFFIX".c -o ./build/main-"$SUFFIX");
-	$(echo sudo ./build/main-"$SUFFIX");
+	$(echo sudo ./"$DIRECTORY_BUILD"/main-"$SUFFIX");
 }
 
 vagrind()

@@ -61,7 +61,7 @@ token_t **parser(garbage_collector_t *GC, token_t **raw_tokens)
 	char middle_type_specifiers[] = " -+l.0123456789";
 	token_t **parse_tokens;
 
-	parse_tokens = (token_t **)GC->malloc(GC, 1024 * sizeof(token_t));
+	parse_tokens = (token_t **)GC->malloc(GC, BUFFER_SIZE * sizeof(token_t));
 
 	if (parse_tokens == NULL)
 		return (NULL);
