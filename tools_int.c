@@ -1,9 +1,10 @@
 #include "holberton.h"
 
 /**
- * reverse
- *
- *
+ * reverse - function
+ * @buffer: buffer
+ * @string_len: variable
+ * Return: 0
  */
 bool reverse(char *buffer, size_t string_len)
 {
@@ -18,7 +19,12 @@ bool reverse(char *buffer, size_t string_len)
 	}
 	return (true);
 }
-
+/**
+ * unsigned_long_int_to_string - function
+ * @buffer: buffer
+ * @n: variable
+ * Return: i
+ */
 size_t unsigned_long_int_to_string(char *buffer, unsigned long int n)
 {
 	size_t i = 0;
@@ -31,7 +37,12 @@ size_t unsigned_long_int_to_string(char *buffer, unsigned long int n)
 	reverse(buffer, i);
 	return (i);
 }
-
+/**
+ * long_int_to_string - function
+ * @buffer: buffer
+ * @n: variable
+ * Return: i
+ */
 size_t long_int_to_string(char *buffer, long int n)
 {
 	size_t i = 0;
@@ -52,5 +63,3 @@ size_t long_int_to_string(char *buffer, long int n)
 	reverse(buffer, i);
 	return (i);
 }
-
-
