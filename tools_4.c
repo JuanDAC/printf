@@ -31,16 +31,21 @@ int _strlen_recursion(char *s)
 	return (0);
 }
 /**
- * return_hexa - hexa
+ * long_int_to_hexa - hexa
  * @GC: ene
  * @n: ene
+ * @buffer: to  covert to binary
  * Return: hexa in string
  */
-char *return_hexa(garbage_collector_t *GC, int n)
+char *long_int_to_hexa(
+	garbage_collector_t *GC,
+	char *buffer,
+	long int n
+)
 {
-	char *a = NULL, *copy_a = NULL;
-	int i = 0, j = 0, k = 0, base = 16;
-	int f = n;
+	char *a = NULL;
+	long int i = 0, j = 0, k = 0, base = 16;
+	long int f = n;
 
 	while (f > 0)
 	{
@@ -48,11 +53,8 @@ char *return_hexa(garbage_collector_t *GC, int n)
 		++i;
 	}
 	a = GC->malloc(GC, sizeof(char) * (i + 1));
-	copy_a = GC->malloc(GC, sizeof(char) * (i + 1));
-	if (!copy_a || !a)
+	if (!a)
 	{
-		free(a);
-		free(copy_a);
 		return (NULL);
 	}
 	i = 0, k = 0, f = n;
@@ -66,52 +68,53 @@ char *return_hexa(garbage_collector_t *GC, int n)
 	}
 	for (j = i - 1; j >= 0; j--, k++)
 	{
-		copy_a[k] = a[j];
+		buffer[k] = a[j];
 	}
-	copy_a[k] = '\0';
-	return (copy_a);
+	buffer[k] = '\0';
+	return (buffer);
 }
 /**
- * return_binary - print_binary
+ * long_int_to_binary - print_binary
  * @GC: to  covert to binary
  * @n: to  covert to binary
+ * @buffer: to  covert to binary
  * Return: char
  */
-char *return_binary(garbage_collector_t *GC, int n)
+void long_int_to_binary(
+	garbage_collector_t *GC,
+	char *buffer,
+	long int n
+)
 {
-	char *a, *copy_a;
-	int i = 0, j, k, base = 2;
-	int f = n;
+	char *a;
+	long int i = 0, j, k, base = 2;
+	long int f = n;
 
 	while (f > 0)
 	{
 		f /= base;
-		++i;
+		i++;
 	}
 	if (f == 0)
 	{
-		copy_a = "0";
-		return (copy_a);
+		*buffer = '0';
+		*(buffer + 1) = '\0';
+		return;
 	}
 	a = GC->malloc(GC, sizeof(char) * (i + 1));
-	copy_a = GC->malloc(GC, sizeof(char) * (i + 1));
-	if (!copy_a || !a)
-	{
-		free(a);
-		free(copy_a);
-		return (NULL);
-	}
+	if (a == NULL)
+		return;
+
 	i = 0, k = 0, f = n;
 	while (f > 0)
 	{
 		a[i] = f % base + 48;
 		f /= base;
-		++i;
+		i++;
 	}
+
 	for (j = i - 1; j >= 0; j--, k++)
-	{
-		copy_a[k] = a[j];
-	}
-	copy_a[k] = '\0';
-	return (copy_a);
+		buffer[k] = a[j];
+
+	buffer[k] = '\0';
 }

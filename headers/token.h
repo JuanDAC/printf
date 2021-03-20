@@ -4,6 +4,7 @@
 * enum _token_type - tiping handlers
 * @null: \0
 * @normal_string: no es un flag
+* @binary_integer: b
 * @integer: d
 * @character: c
 * @string: s
@@ -46,6 +47,7 @@ typedef enum _token_type
 	percentage_escape,
 	unsigned_integer,
 	/* advanced */
+	binary_integer,
 	ocatal_integer,
 	hexadecimal_integer,
 	short_integer,

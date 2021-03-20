@@ -15,7 +15,7 @@ char *long_int_to_hexa(
 	char *buffer,
 	long int n
 );
-char *long_int_to_hexa(
+void long_int_to_binary(
 	garbage_collector_t *GC,
 	char *buffer,
 	long int n
@@ -29,7 +29,6 @@ int _abs(int n);
 int _isalpha(int c);
 void *_calloc(unsigned int nmemb, unsigned int size);
 int _pow(int base, int expo);
-int lenht(char *s);
 int paserInt(char *s);
 int is_number(char *s);
 unsigned int _strspn(char *s, char *accept);

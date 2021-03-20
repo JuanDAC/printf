@@ -18,8 +18,11 @@ int _printf(const char *format, ...)
 	va_start(raw_argument_list, format);
 	GC = create_garbage_collector();
 
-	HANDLER_EXCEED_BUFFER(buffer, format)
-	buffer = evaluator(GC, parser(GC, lexer(GC, format)), raw_argument_list);
+	if (HANDLER_EXCEED_BUFFER(format))
+		buffer = (char *)(format);
+	else
+		buffer = evaluator(GC, parser(GC, lexer(GC, format)), raw_argument_list);
+
 	if (buffer == NULL)
 		return (-1);
 

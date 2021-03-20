@@ -31,6 +31,13 @@ char *unsigned_integer_handler(
 	const int attribute_length,
 	...
 );
+char *binary_integer_handler(
+	garbage_collector_t *GC,
+	va_list list_variables,
+	const int attribute_length,
+	...
+);
 
 
 #endif /* FORMAT_HANDLERS_H */
+
